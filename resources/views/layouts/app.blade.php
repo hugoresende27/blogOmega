@@ -18,12 +18,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400&display=swap" rel="stylesheet">
 <style>
+    body { overflow-x: hidden; /* Hide scrollbars */ }
     *{
         font-family: 'Roboto Condensed', sans-serif;
     }
 </style>
 </head>
-<body class="bg-gray-200 h-screen antialiased leading-none font-sans">
+<body class="bg-gray-200 h-screen antialiased leading-none font-sans ">
     <div id="app">
         <header class="bg-blue-900 py-6">
             <div class="container mx-auto flex justify-between items-center px-6">
