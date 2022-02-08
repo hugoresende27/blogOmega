@@ -4,9 +4,13 @@
 
 @import "tailwindcss/utilities";
 
+/* 
+*{
+    font-family: 'Consolas', sans-serif;
+} */
 
 .background-image{
-    background-image: url('https://cdn.pixabay.com/photo/2020/07/02/04/31/matrix-5361690_960_720.png');
+    background-image: url('https://cdn.pixabay.com/photo/2016/11/25/23/15/moon-1859616_960_720.jpg');
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
