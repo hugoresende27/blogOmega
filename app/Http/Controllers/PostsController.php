@@ -71,7 +71,7 @@ class PostsController extends Controller
             'image'=>'required|mimes:jpg,png,jpeg|max:5048'
         ]);
 
-        $newImageName = uniqid(). '-' . $request->title.'.'.$request->image->extension();
+        $newImageName = uniqid(). '.' .$request->image->extension();
         //dd($newImageName);
 
         $request->image->move(public_path('images'), $newImageName);
@@ -126,16 +126,16 @@ class PostsController extends Controller
         $request->validate([
             'title'=>'required',
             'description'=>'required',
-            'image'=>'required|mimes:jpg,png,jpeg|max:5048'
+            //'image'=>'required|mimes:jpg,png,jpeg|max:5048'
         ]);
 
-        
+        //dd($request->image);
         Post::where('slug', $slug)
             ->update([
                 'title'=>$request->input('title'),
                 'description'=>$request->input('description'),
                 'slug'=>SlugService::createSlug(Post::class, 'slug', $request->title),
-                'image_path'=>uniqid(). '-' . $request->title.'.'.$request->image->extension(),
+                //'image_path'=>uniqid(). '.' .$request->image->extension(),
                 'user_id'=>auth()->user()->id
 
             ]);
