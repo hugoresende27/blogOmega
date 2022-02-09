@@ -135,7 +135,7 @@ class PostsController extends Controller
                 'title'=>$request->input('title'),
                 'description'=>$request->input('description'),
                 'slug'=>SlugService::createSlug(Post::class, 'slug', $request->title),
-                'image_path'=>uniqid(). '-' . $request->title.'-'.$request->image->extension(),
+                'image_path'=>uniqid(). '-' . $request->title.'.'.$request->image->extension(),
                 'user_id'=>auth()->user()->id
 
             ]);
