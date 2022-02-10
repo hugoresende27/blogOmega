@@ -43,14 +43,14 @@
                 <img class="mt-10 rounded-2xl" src="{{ URL('/images/'.$p->image_path) }}" width="700" alt="img_do_post">
             </div>
             <div>
-                <h2 class="text-gray-700 font-bold text-5xl pb-4">
+                <h2 class="text-green-300 font-bold text-5xl pb-4">
                     {{ $p->title }}
                 </h2>
-                <span class="text-gray-500">
-                    De <span class="font-bold italic text-gray-800"> {{ $p->user->name }} </span>, criado em {{ date('h:i:sa Y-m-d', strtotime($p->updated_at)) }}
+                <span class="text-green-600">
+                    De <span class="font-bold italic text-gray-100"> {{ $p->user->name }} </span>, criado em {{ date('h:i:sa Y-m-d', strtotime($p->updated_at)) }}
                 </span>
               
-                <p class=" text-xl text-gray-700 pt-8 pb-10 leading-8 font-light">
+                <p class=" text-xl text-green-400 pt-8 pb-10 leading-8 font-light">
                 
                     {{ $p->description }}
                 </p>
@@ -62,18 +62,18 @@
                  {{------------- BOTÃO EDIT APENAS VISIVEL SE AUTENTICADO E AUTENTICADO CORRESPONDER AO AUTOR DO POST --}}
                 @if (isset(Auth::user()->id) && Auth::user()->id == $p->user_id)
 
-                <div class="relative">
-                    <span class="float-right">
+                <div class="relative mt-10">
+                    <span class="">
                         <a href="/blog/{{ $p->slug }}/edit" class="py-4 px-4 bg-green-500 rounded-3xl text-lg hover:text-white">
                             Editar
                         </a>
                     </span>
                 {{------------- BOTÃO DELETE APENAS VISIVEL SE AUTENTICADO E AUTENTICADO CORRESPONDER AO AUTOR DO POST --}}
-                    <span class="float-right">
-                        <form action="/blog/{{ $p->slug }}" method="POST">
+                    <span class="">
+                        <form action="/blog/{{ $p->slug }}" method="POST" class="mt-5">
                             @csrf
                             @method('delete')
-                            <button type="submit" class="mb-4 py-4 px-4 bg-red-500 rounded-3xl text-lg hover:text-white">
+                            <button type="submit" class="mb-2 py-4 px-4 bg-red-500 rounded-3xl text-lg hover:text-white">
                                 Delete
                             </button>
                         </form>              

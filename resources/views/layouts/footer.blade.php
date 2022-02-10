@@ -63,22 +63,22 @@
 
             <ul class="py-4 sm:text-s pt-4 text-gray-400">
                 <li class="pb-1">
-                    <a href="/">
+                    <a href="/blog">
                         PHP
                     </a>
                 </li>
                 <li class="pb-1">
-                    <a href="/">
+                    <a href="/blog">
                         Laravel
                     </a>
                 </li>
                 <li class="pb-1">
-                    <a href="/">
+                    <a href="/blog">
                         Tailwind
                     </a>
                 </li>
                 <li class="pb-1">
-                    <a href="/">
+                    <a href="/blog">
                         Bootstrap
                     </a>
                 </li>
@@ -86,7 +86,7 @@
 
         </div>
     </div>
-    <p class="w-25 w-4/5 pb-3 m-auto text-xs text-gray-100 pt-6">
+    <p class="w-25 w-4/5 pb-3 m-auto text-lg text-gray-100 pt-6">
         Hugo Resende &copy;2022 Direitos Reservados
     </p>
 </footer>

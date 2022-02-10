@@ -10,7 +10,9 @@
         </div>
     </div>
  
-
+    <div class="sm:grid grid-cols-2 gap-20 mx-auto py-15 border-b w-4/5 block">
+        <img class="mt-10 rounded-2xl" src="{{ URL('/images/'.$post->image_path) }}" width="700" alt="img_do_post">
+    </div>
 
     {{-- SHOW -- BOTÃO CONTINUE A LER ------------------- --}}
     <div class="m-auto pt-20 w-4/5 text-blue-500 ">

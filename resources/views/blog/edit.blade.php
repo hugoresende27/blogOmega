@@ -38,14 +38,14 @@
             <textarea name="description"  class="py-20 bg-transparent block border-b-2 w-full h-60 text-xl outline-none">{{ $post->description }}</textarea>
 
             {{-- INPUT IMAGEM-------------------- --}}
-            {{-- <div class="bg-gray-lighter pt-15">
+            <div class="bg-gray-lighter pt-15">
                 <label class="w-44 flex flex-col items-center px-2 py-3 bg-white-rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer">
                     <span class="mt-2 text-base leading-normal">
                         Ficheiro
                     </span>
                     <input type="file" name="image" class="hidden">
                 </label>
-            </div> --}}
+            </div>
          
             
             {{-- BOTÃO SUBMIT-------------------- --}}
