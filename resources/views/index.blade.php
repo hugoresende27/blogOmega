@@ -18,7 +18,7 @@
 
     <div class="sm:grid grid-cols-2 gap-20 w-4/5 mx-auto py-15 border-b border-gray-200 bg-gray-300 ">
         <div>
-            <img src="{{ URL('/images/img1.jpg') }}" width="700" alt="notebook_img" class="rounded-3xl ml-3">
+            <img src="{{ URL('/images/img1.jpg') }}" width="700" alt="notebook_img" class="rounded-3xl m-auto">
         </div>
 
         <div class="m-auto sm:m-auto text-left w-4/5 block">
