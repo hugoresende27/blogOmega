@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title> {{ env('APP_NAME') }} v{{ env('APP_VERSION') }}</title>
+    <title> {{ env('APP_NAME') }} v{{ env('APP_VERSION') }}1.3</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
