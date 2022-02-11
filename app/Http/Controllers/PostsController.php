@@ -68,14 +68,14 @@ class PostsController extends Controller
         $request->validate([
             'title'=>'required',
             'description'=>'required',
-            'image'=>'required|mimes:jpg,png,jpeg|max:5048'
+            // 'image'=>'required|mimes:jpg,png,jpeg|max:5048'
         ]);
 
         //$newImageName = uniqid(). '.' .$request->image->extension();
-        $newImageName = time().'.'.$request->image->extension();  
-        //dd($newImageName);
+        // $newImageName = time().'.'.$request->image->extension();  
+        // //dd($newImageName);
 
-        $request->image->move(public_path('images'), $newImageName);
+        // $request->image->move(public_path('images'), $newImageName);
 
         $slug = SlugService::createSlug(Post::class, 'slug', $request->title);
 
@@ -85,7 +85,7 @@ class PostsController extends Controller
             'title'=>$request->input('title'),
             'description'=>$request->input('description'),
             'slug'=>$slug,
-            'image_path'=>$newImageName,
+            //'image_path'=>$newImageName,
             'user_id'=>auth()->user()->id
         ]);
 
@@ -127,7 +127,7 @@ class PostsController extends Controller
         $request->validate([
             'title'=>'required',
             'description'=>'required',
-            'image'=>'required|mimes:jpg,png,jpeg|max:5048'
+            // 'image'=>'required|mimes:jpg,png,jpeg|max:5048'
         ]);
 
 
@@ -139,7 +139,7 @@ class PostsController extends Controller
                 'title'=>$request->input('title'),
                 'description'=>$request->input('description'),
                 'slug'=>SlugService::createSlug(Post::class, 'slug', $request->title),
-                'image_path'=>$newImageName,
+                // 'image_path'=>$newImageName,
                 'user_id'=>auth()->user()->id
 
             ]);
