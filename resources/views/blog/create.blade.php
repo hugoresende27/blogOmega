@@ -30,10 +30,10 @@
 
             {{-- INPUT TITULO-------------------- --}}
             <input type="text" name="title" placeholder="Titulo..."
-                class="bg-transparent block border-b-2 w-full h-20 text-6xl outline-none">
+                class="text-white bg-transparent block border-b-2 w-full h-20 text-6xl outline-none">
 
             {{-- INPUT POST-------------------- --}}
-            <textarea name="description" placeholder="Texto do post..." class="py-20 bg-transparent block border-b-2 w-full h-60 text-xl outline-none"></textarea>
+            <textarea name="description" placeholder="Texto do post..." class="py-20 bg-transparent block border-b-2 w-full h-60 text-xl outline-none text-white "></textarea>
 
             {{-- INPUT IMAGEM-------------------- --}}
             {{-- <div class="bg-gray-lighter pt-15">
