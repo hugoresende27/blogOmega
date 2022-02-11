@@ -131,8 +131,8 @@ class PostsController extends Controller
         ]);
 
 
-        $newImageName = time().'.'.$request->image->extension(); 
-        $request->image->move(public_path('images'), $newImageName);
+        //$newImageName = time().'.'.$request->image->extension(); 
+        //$request->image->move(public_path('images'), $newImageName);
         //dd($request->image);
         Post::where('slug', $slug)
             ->update([

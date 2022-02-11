@@ -13,14 +13,22 @@ class UsersSeeder extends Seeder
      */
     public function run()
     {
-        if(config('admin.admin_name')) {
-            User::firstOrCreate(
-                ['email' => config('admin.admin_email')], [
-                    'name' => config('admin.admin_name'),
-                    'password' => bcrypt(config('admin.admin_password')),
-                    'level' => 3
-                ]
-            );
-        }
+        User::firstOrCreate(
+            ['email' => 'admin@admin.com', 
+                'name' => 'Hugo Resende',
+                'password' => bcrypt('12345678'),
+                'level' => 3
+            ]
+        );
+
+        // if(config('admin.admin_name')) {
+        //     User::firstOrCreate(
+        //         ['email' => config('admin.admin_email')], [
+        //             'name' => config('admin.admin_name'),
+        //             'password' => bcrypt(config('admin.admin_password')),
+        //             'level' => 3
+        //         ]
+        //     );
+        // }
     }
 }
