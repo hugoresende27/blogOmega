@@ -39,9 +39,9 @@
 
         {{-- {{ dd($p->image_path) }} --}}
         <div class="sm:grid grid-cols-2 gap-20 mx-auto py-15 border-b w-4/5 block">
-            <div>
+            {{-- <div>
                 <img class="mt-10 rounded-2xl" src="{{ URL('/images/'.$p->image_path) }}" width="700" alt="img_do_post">
-            </div>
+            </div> --}}
             <div>
                 <h2 class="text-green-300 font-bold text-5xl pb-4">
                     {{ $p->title }}

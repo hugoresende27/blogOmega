@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title> BLOG OMEGA HR v1.2</title>
+    <title> {{ env('APP_NAME') }} v{{ env('APP_VERSION') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -29,14 +29,18 @@
 
     .minhaFont{
         font-family: 'Consolas',sans-serif;
+        color:greenyellow;
     }
 
     input{
         color: #000;
     }
+    .dropdown:hover .dropdown-menu {
+  display: block;
+}
 </style>
 </head>
-<body class="bg-gray-900 text-white h-screen antialiased leading-none font-sans ">
+<body class="bg-black text-white h-screen antialiased leading-none font-sans ">
     <div id="app">
         <header class="bg-dark py-6 ">
             <div class="container mx-auto flex justify-between items-center px-6">
@@ -46,6 +50,28 @@
                     </a>
                 </div>
                 <nav class="space-x-4 text-gray-300 text-sm sm:text-base">
+
+                    @if (isset(Auth::user()->level) && Auth::user()->level == 3)
+
+                        <div class="float-left">
+                            
+                            
+
+                                <div class="dropdown inline-block relative">
+                                  <button class="bg-gray-300 text-gray-700 font-semibold py-2 px-4 rounded inline-flex items-center">
+                                    <span class="mr-1">Administração</span>
+                                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/> </svg>
+                                  </button>
+                                  <ul class="dropdown-menu absolute hidden text-gray-700 pt-1">
+                                    <li class=""><a class="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="#">Users</a></li>
+                                    <li class=""><a class="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="#">Two</a></li>
+                                    <li class=""><a class="rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="#">Three is the magic number</a></li>
+                                  </ul>
+                                </div>
+                              
+                              
+                        </div>
+                    @endif
                 
                     @guest
                         <a class="no-underline hover:underline minhaFont" href="{{ route('login') }}">{{ __('Login') }}</a>

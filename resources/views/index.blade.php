@@ -1,15 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
-    
-    <div class="background-image grid grid-cols-1 m-auto">
+
+    {{-- {{ dd(Auth::user()->level) }} --}}
+
+    <div class="bg-green-500 grid grid-cols-1 m-auto h-1/2" style="background: url('{{ URL('/images/bg_matrix.jpg') }}')">
         <div class="flex text-gray-100 pt-10">
             <div class="pt-4 pb-16 sm:m-auto w-4/5 block text-center">
-                <h1 class="sm:text-blue-100 text-5xl uppercase font-bold text-shadow-md pb-14">
-                    Bem vindo ao <span style="color:#000"> meu site</span>
+                <h1 class="sm:text-white text-5xl uppercase font-bold text-shadow-md pb-14">
+                    Bem vindo ao <span style="color:rgb(0, 0, 0)"> meu site</span>
                 </h1>
                 <a href="/blog"
-                    class="text-center bg-gray-50 text-gray-700 py-2 px-4 font-bold text-xl uppercase"
+                    class="text-center bg-gray-50 text-gray-700 py-2 px-4 font-bold text-xl uppercase rounded-3xl"
                 >Saiba mais</a>
             </div>
         </div>
@@ -18,7 +20,7 @@
 
     <div class="sm:grid grid-cols-2 gap-20 w-4/5 mx-auto py-15 border-b border-gray-200 bg-gray-300 ">
         <div>
-            <img src="{{ URL('/images/img1.jpg') }}" width="700" alt="notebook_img" class="rounded-3xl m-auto">
+            <img src="{{ URL('/images/img1.jpg') }}" width="600" alt="notebook_img" class="w-4/5 rounded-3xl m-auto">
         </div>
 
         <div class="m-auto sm:m-auto text-left w-4/5 block">
@@ -65,7 +67,10 @@
             Posts Recentes
         </h2>
         <p class="m-auto text-lg text-yellow-500 w-4/5">
-           {{ $post->description }}
+            @if (isset($post))
+                {{ $post->description }}
+            @endif
+           
         </p>
     </div>
 

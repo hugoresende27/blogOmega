@@ -24,6 +24,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'level'
     ];
 
     /**
@@ -49,5 +50,9 @@ class User extends Authenticatable
     public function post()
     {
         return $this->hasMany(Post::class);
+    }
+
+    public function levels() {
+        return $this->belongsToMany(Level::class, 'user_level');
     }
 }
