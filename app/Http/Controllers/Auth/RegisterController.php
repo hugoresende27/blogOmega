@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
 use App\Models\User;
-use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Mail\WelcomeMail;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
+use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Foundation\Auth\RegistersUsers;
 
 class RegisterController extends Controller
 {
@@ -36,10 +38,10 @@ class RegisterController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('guest');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
 
     /**
      * Get a validator for an incoming registration request.
@@ -64,10 +66,49 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+
+           // email data
+        // $email_data = array(
+        //     'name' => $data['name'],
+        //     'email' => $data['email'],
+        // );
+
+        // // send email with the template
+        // Mail::send('welcome_email', $email_data, function ($message) use ($email_data) {
+        //     $message->to($email_data['email'], $email_data['name'])
+        //         ->subject('Welcome to MyNotePaper')
+        //         ->from('info@mynotepaper.com', 'MyNotePaper');
+        // });
+
+
+        // $mail = $data['email'];
+        // $details = [
+        //     'nome' => $data['name'],
+        //     'email' => $data['email'],
+        //     'pass' => $data['password'],
+            
+        // ];     
+        // Mail::to($mail)->send(new \App\Mail\TestEmail($details)  );
+
+
+        $email = $data['email'];
+        $data = ([
+        'name' => $data['name'],
+        'email' => $data['email'],
+  
+        ]);
+        Mail::to($email)->send(new WelcomeMail($data));
+        
+       
+        
+      
+
+
+        return $user;
     }
 }
