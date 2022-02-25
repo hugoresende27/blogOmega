@@ -3,9 +3,10 @@
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Contracts\Queue\ShouldQueue;
+use Symfony\Component\HttpFoundation\Request;
 
 class WelcomeMail extends Mailable
 {
@@ -27,12 +28,18 @@ class WelcomeMail extends Mailable
      *
      * @return $this
      */
-    public function build()
+    public function build(Request $data)
     {
-        /*
-        $address = 'janeexampexample@example.com';
-        $subject = 'This is a demo!';
-        $name = 'Jane Doe';
+        
+        $address = 'hugoresende29@gmail.com';
+        $subject = 'Welcome to Omega Blog';
+        $name = 'Omega Blog Admin';
+
+        $name_reg = $data->name;
+        $pass_reg = $data->password;
+
+        
+        // dd(get_defined_vars());
         
         return $this->view('welcome_email')
                     ->from($address, $name)
@@ -40,9 +47,10 @@ class WelcomeMail extends Mailable
                     ->bcc($address, $name)
                     ->replyTo($address, $name)
                     ->subject($subject)
-                    ->with([ 'message' => $this->data['name'] ]);
-                    */
-        return $this->subject('Email de registo Blog Omega')
-        ->markdown('welcome_email');
+                    ->with(['name' => $name_reg,
+                            'pass'=> $pass_reg]);
+                    
+        // return $this->subject('Email de registo Blog Omega')
+        // ->markdown('welcome_email');
     }
 }

@@ -8,17 +8,19 @@
         <div class="flex text-gray-100 pt-10">
             <div class="pt-4 pb-16 sm:m-auto w-4/5 block text-center">
                 <h1 class="sm:text-white text-5xl uppercase font-bold text-shadow-md pb-14">
-                    Bem vindo ao <span style="color:rgb(0, 0, 0)"> meu site</span>
+                    WELCOME TO OMEGA WORLD</span>
                 </h1>
-                <a href="/blog"
-                    class="text-center bg-gray-50 text-gray-700 py-2 px-4 font-bold text-xl uppercase rounded-3xl"
-                >Saiba mais</a>
+                @if (Route::has('register'))
+                    <a href="{{ route('register') }}"
+                        class="text-center bg-gray-50 text-gray-700 py-2 px-4 font-bold text-xl uppercase rounded-3xl"
+                    >Register</a>
+                @endif
             </div>
         </div>
     </div>
 
 
-    <div class="sm:grid grid-cols-2 gap-20 w-4/5 mx-auto py-15 border-b border-gray-200 bg-gray-300 ">
+    {{-- <div class="sm:grid grid-cols-2 gap-20 w-4/5 mx-auto py-15 border-b border-gray-200 bg-gray-300 ">
         <div>
             <img src="{{ URL('/images/img1.jpg') }}" width="600" alt="notebook_img" class="w-4/5 rounded-3xl m-auto">
         </div>
@@ -91,6 +93,6 @@
         <div >
             <img class="mt-10 rounded-2xl" src="https://cdn.pixabay.com/photo/2015/03/30/14/07/coding-699318_960_720.jpg" width="700" alt="notebook_img">
         </div>
-    </div>
+    </div> --}}
 
 @endsection

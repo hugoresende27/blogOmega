@@ -66,35 +66,14 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+
         $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
 
-           // email data
-        // $email_data = array(
-        //     'name' => $data['name'],
-        //     'email' => $data['email'],
-        // );
-
-        // // send email with the template
-        // Mail::send('welcome_email', $email_data, function ($message) use ($email_data) {
-        //     $message->to($email_data['email'], $email_data['name'])
-        //         ->subject('Welcome to MyNotePaper')
-        //         ->from('info@mynotepaper.com', 'MyNotePaper');
-        // });
-
-
-        // $mail = $data['email'];
-        // $details = [
-        //     'nome' => $data['name'],
-        //     'email' => $data['email'],
-        //     'pass' => $data['password'],
-            
-        // ];     
-        // Mail::to($mail)->send(new \App\Mail\TestEmail($details)  );
-
+     
 
         $email = $data['email'];
         $data = ([
@@ -104,10 +83,7 @@ class RegisterController extends Controller
         ]);
         Mail::to($email)->send(new WelcomeMail($data));
         
-       
-        
-      
-
+  
 
         return $user;
     }

@@ -17,6 +17,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400&display=swap" rel="stylesheet">
+<link href="/dist/output.css" rel="stylesheet">
 <style>
     body { overflow-x: hidden; /* Hide scrollbars */ 
                
@@ -63,8 +64,8 @@
                                     <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/> </svg>
                                   </button>
                                   <ul class="dropdown-menu absolute hidden text-gray-700 pt-1">
-                                    <li class=""><a class="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="#">Users</a></li>
-                                    <li class=""><a class="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="#">Two</a></li>
+                                    <li class=""><a class="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="allusers">Users</a></li>
+                                    <li class=""><a class="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="/mailtemplate">Registration mail template</a></li>
                                     <li class=""><a class="rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="#">Three is the magic number</a></li>
                                   </ul>
                                 </div>
@@ -75,9 +76,9 @@
                 
                     @guest
                         <a class="no-underline hover:underline minhaFont" href="{{ route('login') }}">{{ __('Login') }}</a>
-                        @if (Route::has('register'))
+                        {{-- @if (Route::has('register'))
                             <a class="no-underline hover:underline minhaFont" href="{{ route('register') }}">{{ __('Registar') }}</a>
-                        @endif
+                        @endif --}}
                         <a class="no-underline hover:underline  minhaFont" href="/">Home</a>
                         <a class="no-underline hover:underline minhaFont" href="/blog">Blog</a>
                     @else

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\PostsController;
 
@@ -25,3 +26,6 @@ Auth::routes();
 
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/mailtemplate', [AdminController::class, 'viewMailTemplate'] );
+Route::get('/allusers', [AdminController::class, 'viewAllusers'] );
