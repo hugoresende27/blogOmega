@@ -3,21 +3,29 @@
 @section('content')
 
     {{-- {{ dd(Auth::user()->level) }} --}}
-
-    <div class="bg-green-500 grid grid-cols-1 m-auto h-1/2" style="background: url('{{ URL('/images/bg_matrix.jpg') }}')">
-        <div class="flex text-gray-100 pt-10">
+<div class="main-content"style="background: url('{{ URL('/images/bg_matrix.jpg') }}')">
+       
+        
             <div class="pt-4 pb-16 sm:m-auto w-4/5 block text-center">
-                <h1 class="sm:text-white text-5xl uppercase font-bold text-shadow-md pb-14">
+                <h1 class=" welcome-title">
                     WELCOME TO OMEGA WORLD</span>
                 </h1>
+            @guest
+                
+           
                 @if (Route::has('register'))
+               
                     <a href="{{ route('register') }}"
-                        class="text-center bg-gray-50 text-gray-700 py-2 px-4 font-bold text-xl uppercase rounded-3xl"
+                        class="btn-hero"
                     >Register</a>
+               
                 @endif
+
+            @endguest
             </div>
-        </div>
-    </div>
+       
+    
+</div>
 
 
     {{-- <div class="sm:grid grid-cols-2 gap-20 w-4/5 mx-auto py-15 border-b border-gray-200 bg-gray-300 ">

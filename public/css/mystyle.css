@@ -1,0 +1,196 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+body { overflow-x: hidden; /* Hide scrollbars */ 
+               
+    
+}
+
+
+*{
+    font-family: 'Roboto', sans-serif;
+    /* font-family: 'Consolas',sans-serif; */
+}
+
+.main-content{
+    min-height: 81vh;
+    background-color: #000;
+    
+}
+
+.main-content-posts{
+    display: flex;
+    flex-direction: column; /*coloca tudo em coluna*/
+    align-items: center;    /*alinha horizontalmente*/
+    justify-content: center;
+    text-align: center;
+}
+.all-posts{
+    padding: 50px;
+    width: 100%;
+    text-align: left;
+}
+.my-nav{
+    right: 5%;
+    position: absolute;
+    top: 2%;
+}
+
+.form-login{
+    background-color: rgb(5, 53, 5);
+    text-align: center;
+    height: 80vh;
+    display: flex;
+    flex-direction: column; /*coloca tudo em coluna*/
+    align-items: center;    /*alinha horizontalmente*/
+    justify-content: center;
+}
+.form-reg{
+    background-color: rgb(5, 53, 5);
+    text-align: center;
+    display: flex;
+    flex-direction: column; /*coloca tudo em coluna*/
+    align-items: center;    /*alinha horizontalmente*/
+    justify-content: center;
+}
+
+.my-reg{
+    padding: 10px;
+    text-align: left;
+  
+}
+
+.my-links-nav{
+    font-family: 'Consolas',sans-serif;
+    color:greenyellow;
+    background-color: #000;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+}
+.my-links-nav:hover{
+    background-color: #fff;
+    color: #000;
+}
+.my-top-nav{
+    min-height: 50px;
+    padding: 15px;
+}
+
+input{
+    color: rgb(1, 12, 2);
+    font-family: 'Consolas',sans-serif;
+    font-size: 1.2rem;
+}
+.dropdown:hover .dropdown-menu {
+display: block;}
+
+.btn-hero {
+    background-color: #fff;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 10px;
+    font-weight: 900;
+    text-transform: uppercase;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+.btn-hero:hover{
+    background-color: #000;
+    color: #fff;
+}
+
+.btn-hero-bt{
+    background-color: #fff;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 10px;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+.btn-hero-bt:hover{
+    background-color: #000;
+    color: #fff;
+}
+
+.welcome-title{
+    background-color: green;
+    padding: 10px; 
+    align-items: center;    /*alinha horizontalmente*/
+    justify-content: center;
+
+}
+
+/*///////////////////////////////HIDE ME //////////////////////////////////////*/
+
+#hideMe {
+    -moz-animation: cssAnimation 0s ease-in 2s forwards;
+    /* Firefox */
+    -webkit-animation: cssAnimation 0s ease-in 2s forwards;
+    /* Safari and Chrome */
+    -o-animation: cssAnimation 0s ease-in 2s forwards;
+    /* Opera */
+    animation: cssAnimation 0s ease-in 2s forwards;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+@keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        overflow:hidden;
+    }
+}
+@-webkit-keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        visibility:hidden;
+    }
+}
+
+/*///////////////////////////////INPUT LICENCE PLATE //////////////////////////////////////*/
+
+footer{
+    padding: 0.5rem;
+    text-align: center;
+    color:#fff;
+    /* position: relative; */
+    /* position: absolute; */
+    /* bottom: 0rem;  */
+    /* left: 50%;  */
+    /* transform: translateX(-50%); */
+    clear: both;
+    /* position: relative; */
+    /* height: 200px; */
+    /* margin-top: -200px; */
+    max-height: 85px;
+
+}
+
+footer:hover{
+    background-color: #333;
+    color: #fff;
+    border-radius: 10px;
+    /* transform:  scale(1.1);  */
+}
+footer:hover a{
+    color: yellow;
+    font-weight: 700;
+}
+footer:hover a:hover{
+    font-weight: 900;
+    color:greenyellow;
+}
+
+footer a{
+   color: #fff;  /*cor dos links a preto*/
+   text-decoration: none;     /*retira o sublinhado dos links*/
+  
+}
+
+footer a:hover{
+    color: var(--gold-cor);
+}

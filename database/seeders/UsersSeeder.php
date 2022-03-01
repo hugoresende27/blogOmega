@@ -14,9 +14,10 @@ class UsersSeeder extends Seeder
     public function run()
     {
         User::firstOrCreate(
-            ['email' => 'admin@admin.com', 
-                'name' => 'Hugo Resende',
-                'password' => bcrypt('12345678'),
+            ['email' => 'admin@admin', 
+                'first_name' => 'Hugo',
+                'last_name' => 'Resende',
+                'password' => bcrypt('admin'),
                 'level' => 3
             ]
         );

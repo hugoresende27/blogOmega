@@ -1,35 +1,113 @@
 @extends('layouts.app')
 
 @section('content')
-<main class="sm:container sm:mx-auto sm:max-w-lg sm:mt-10">
-    <div class="flex">
-        <div class="w-full">
-            <section class="flex flex-col break-words bg-white sm:border-1 sm:rounded-md sm:shadow-sm sm:shadow-lg">
 
-                <header class="font-semibold bg-gray-200 text-gray-700 py-5 px-6 sm:py-6 sm:px-8 sm:rounded-t-md">
-                    {{ __('Registar') }}
-                </header>
+<div class="form-reg">
+        
 
                 <form class="w-full px-6 space-y-6 sm:px-10 sm:space-y-8" method="POST"
                     action="{{ route('register') }}">
                     @csrf
 
-                    <div class="flex flex-wrap">
-                        <label for="name" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
-                            {{ __('Nome') }}:
+                    <div class="my-reg">
+                        <input type="file" name="image" class="form-control" onchange="preview()">
+                        <img id="frame" src="" width="300px" height="300px" class="m-3"/>
+                    </div>
+                    
+                    <div class="my-reg">
+                        <label for="first_name" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
+                            {{ __('First Name') }}:
                         </label>
 
-                        <input id="name" type="text" class="form-input w-full @error('name')  border-red-500 @enderror"
-                            name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                        <input id="first_name" type="text" class="form-input w-full @error('first_name')  border-red-500 @enderror"
+                            name="first_name" value="{{ old('first_name') }}" required autocomplete="first_name" autofocus>
+                       
+                        @error('first_name')
+                        <p class="text-red-500 text-xs italic mt-4">
+                            {{ $message }}
+                        </p>
+                        @enderror
+                    </div>
+                    <div class="my-reg">
+                        <label for="last_name" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
+                            {{ __('Last Name') }}:
+                        </label>
 
-                        @error('name')
+                        <input id="last_name" type="text" class="form-input w-full @error('last_name')  border-red-500 @enderror"
+                            name="last_name" value="{{ old('last_name') }}" required autocomplete="last_name" autofocus>
+
+                        @error('last_name')
                         <p class="text-red-500 text-xs italic mt-4">
                             {{ $message }}
                         </p>
                         @enderror
                     </div>
 
-                    <div class="flex flex-wrap">
+                  
+
+                    <div class="my-reg">
+                        <label for="nickname" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
+                            {{ __('Nickname') }}:
+                        </label>
+
+                        <input id="nickname" type="text" class="form-input w-full @error('nickname')  border-red-500 @enderror"
+                            name="nickname" value="{{ old('nickname') }}"  autocomplete="nickname" autofocus>
+
+                        @error('nickname')
+                        <p class="text-red-500 text-xs italic mt-4">
+                            {{ $message }}
+                        </p>
+                        @enderror
+                    </div>
+
+                    <div class="my-reg">
+                        <label for="phone" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
+                            {{ __('Phone') }}:
+                        </label>
+
+                        <input id="phone" type="tel" class="form-input w-full @error('phone')  border-red-500 @enderror"
+                            name="phone" value="{{ old('phone') }}" pattern="[0-9]{9}" autocomplete="phone" autofocus>
+
+                        @error('nickname')
+                        <p class="text-red-500 text-xs italic mt-4">
+                            {{ $message }}
+                        </p>
+                        @enderror
+                    </div>
+
+                    <div class="my-reg">
+                        <label for="sex" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
+                            {{ __('Sex') }}:
+                        </label>
+
+                        <select id="sex" type="text" class="form-input w-full @error('sex')  border-red-500 @enderror"
+                            name="sex" value="{{ old('sex') }}" required autocomplete="sex" autofocus>
+                            <option value="M">M</option>
+                            <option value="F">F</option>
+                        </select>
+                        @error('sex')
+                            <p class="text-red-500 text-xs italic mt-4">
+                                {{ $message }}
+                            </p>
+                        @enderror
+                    </div>
+
+                    <div class="my-reg">
+                        <label for="born" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
+                            {{ __('Date of Birth') }}:
+                        </label>
+
+                        <input id="born" type="date" class="form-input w-full @error('born')  border-red-500 @enderror"
+                            name="born" value="{{ old('sex') }}" required autocomplete="born" autofocus max="2005-12-31" required>
+                            
+                        @error('sex')
+                            <p class="text-red-500 text-xs italic mt-4">
+                                {{ $message }}
+                            </p>
+                        @enderror
+                    </div>
+
+                    <div class="my-reg">
                         <label for="email" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
                             {{ __('E-Mail') }}:
                         </label>
@@ -45,7 +123,7 @@
                         @enderror
                     </div>
 
-                    <div class="flex flex-wrap">
+                    <div class="my-reg">
                         <label for="password" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
                             {{ __('Password') }}:
                         </label>
@@ -61,7 +139,7 @@
                         @enderror
                     </div>
 
-                    <div class="flex flex-wrap">
+                    <div class="my-reg">
                         <label for="password-confirm" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
                             {{ __('Confirm Password') }}:
                         </label>
@@ -70,23 +148,22 @@
                             name="password_confirmation" required autocomplete="new-password">
                     </div>
 
-                    <div class="flex flex-wrap">
+                    <div class="my-reg">
                         <button type="submit"
-                            class="w-full select-none font-bold whitespace-no-wrap p-3 rounded-lg text-base leading-normal no-underline text-gray-100 bg-blue-500 hover:bg-blue-700 sm:py-4">
-                            {{ __('Registar') }}
+                            class="btn-hero-bt">
+                            {{ __('Register') }}
                         </button>
 
                         <p class="w-full text-xs text-center text-gray-700 my-6 sm:text-sm sm:my-8">
                             {{ __('Já tem conta?') }}
-                            <a class="text-blue-500 hover:text-blue-700 no-underline hover:underline" href="{{ route('login') }}">
+                            <a class="" href="{{ route('login') }}">
                                 {{ __('Login') }}
                             </a>
                         </p>
                     </div>
                 </form>
 
-            </section>
+           
         </div>
-    </div>
-</main>
+
 @endsection
