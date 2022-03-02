@@ -23,7 +23,7 @@
 
             <div class="card-body">
            
-              <p class="card-text">{{ $item->details }} </p>
+              <p ><span class="label-tags"> {{ $item->details }} </p>
               <p> <span class="label-tags">    First Name  {{ $item->first_name }} </span></p>
               <p> <span class="label-tags">    Last Name  {{ $item->last_name }} </span></p>
               <p> <span class="label-tags">    Nickname  {{ $item->nickname }} </span></p>

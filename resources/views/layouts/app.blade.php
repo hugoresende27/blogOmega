@@ -20,6 +20,9 @@
 {{-- <link rel="stylesheet" href="{{ asset('css/mystyle.css') }}"> --}}
 <link rel="stylesheet" href="css/mystyle.css">
 <link rel="stylesheet" href="{{ url('css/mystyle.css') }}">
+<link rel="shortcut icon" href="{{ asset('images/logo.jpg') }}">
+<link rel="icon" type="image/jpg" href="{{ asset('images/logo.jpg') }}">
+
 </head>
 <body class="bg-black text-white h-screen antialiased leading-none font-sans ">
     <div >
@@ -64,7 +67,7 @@
                     @else
                         <span>Bem vindo  {{ Auth::user()->first_name }} </span>
 
-                        <a class="  my-links-nav" href="/myprofile">My Profile</a>
+                        <a class="  my-links-nav" href="/profile/{{ Auth::user()->id }}">My Profile</a>
                         <a class="  my-links-nav" href="/blog">Blog</a>
 
                         <a href="{{ route('logout') }}"
