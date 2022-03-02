@@ -77,7 +77,7 @@
                     </a>
 
                     {{------------- BOTÃO EDIT APENAS VISIVEL SE AUTENTICADO E AUTENTICADO CORRESPONDER AO AUTOR DO POST --}}
-                    @if (isset(Auth::user()->id) && Auth::user()->id == $p->user_id || (Auth::user()->level == 3))
+                    @if (isset(Auth::user()->id) && Auth::user()->id == $p->user_id || isset(Auth::user()->level) && Auth::user()->level == 3))
 
                     <div class="but-ger">
                         <span class="">
