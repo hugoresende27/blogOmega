@@ -23,7 +23,7 @@ class UserController extends Controller
 
         if (isset($request->image)){
             $imageName = time().'.'.$request->image->extension();  
-            $destination = asset('/profile_pics');
+            $destination = public_path('/profile_pics');
             $request->image->move($destination,$imageName);
         } else {
             $imageName = User::where('id',$auth_id)->first();

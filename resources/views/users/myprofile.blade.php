@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="flex form-login">
+  {!!  asset('storage/file.txt'); !!}
 
     <div class="card card-profile" style="width: 18rem;">
         <img class="card-img-top " src="{{ asset('profile_pics/'.Auth::user()->image) }}" alt="No image">

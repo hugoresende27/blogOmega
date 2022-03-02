@@ -80,7 +80,7 @@ class RegisterController extends Controller
     {
      
         $imageName = time().'.'.$data['image']->extension(); 
-        $destination = asset('/profile_pics');
+        $destination = public_path('/profile_pics');
         
         $data['image']->move($destination,$imageName);
         // dd(get_defined_vars());
