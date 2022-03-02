@@ -80,4 +80,13 @@ class UserController extends Controller
     {
         return view ('users.myprofile');
     }
+
+    public function profile( $id)
+    {
+        $user = User::where('id',$id)->get();
+        // dd(get_defined_vars());
+        return view ('users.profile', compact('user'));
+    }
+
+    
 }

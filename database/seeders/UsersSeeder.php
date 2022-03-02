@@ -15,8 +15,8 @@ class UsersSeeder extends Seeder
     {
         User::firstOrCreate(
             ['email' => 'admin@admin', 
-                'first_name' => 'Hugo',
-                'last_name' => 'Resende',
+                'first_name' => 'Admin',
+                'last_name' => 'admin',
                 'password' => bcrypt('admin'),
                 'level' => 3
             ]

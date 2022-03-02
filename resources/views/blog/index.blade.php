@@ -29,7 +29,7 @@
     {{-- VERIFICAR SE AUTENTICADO ---------------- --}}
     @if (Auth::check())
 
-    <div class="pt-15 w-4/5 m-auto">
+    <div class="pt-15 w-4/5 m-auto mt-3">
         <a href="/blog/create"
             class="btn-hero-bt"    
         >
@@ -46,19 +46,26 @@
         <div class="all-posts">
 
        
-                <div>
+                <div class="post-img">
                     <img class="mt-10 rounded-2xl" src="{{ url('/post_pics/'.$p->image) }}" width="700" alt="img_do_post">
                 </div>
            
 
           
-                <div>
+                <div class="post-text">
                     <h2 class="text-green-300 font-bold text-5xl pb-4">
                         {{ $p->title }}
                     </h2>
-                    <span class="">
-                        De <span class=""> {{ $p->user->first_name }} </span>, criado em {{ date('h:i:sa Y-m-d', strtotime($p->updated_at)) }}
-                    </span>
+                        <a href="/profile/{{ $p->user->id }}">
+                            <img src="{{ $p->user->image }}" alt="profile_img" class="profile-img-posts">
+                            <span class="">
+                                De <span class=""> {{ $p->user->first_name }} </span> 
+                        </a>
+                                
+                                
+                                
+                                , criado em {{ date('h:i:sa Y-m-d', strtotime($p->updated_at)) }}
+                            </span>
                 
                     <p class=" ">
                     
@@ -70,7 +77,7 @@
                     </a>
 
                     {{------------- BOTÃO EDIT APENAS VISIVEL SE AUTENTICADO E AUTENTICADO CORRESPONDER AO AUTOR DO POST --}}
-                    @if (isset(Auth::user()->id) && Auth::user()->id == $p->user_id)
+                    @if (isset(Auth::user()->id) && Auth::user()->id == $p->user_id || (Auth::user()->level == 3))
 
                     <div class="but-ger">
                         <span class="">

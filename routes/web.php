@@ -35,3 +35,4 @@ Route::get('/allusers', [AdminController::class, 'viewAllusers'] );
 Route::get('/uploadphoto', [UserController::class, 'uploadPhoto']);
 Route::post('/uploadphoto_save', [UserController::class, 'uploadPhoto_save']);
 Route::get('/myprofile', [UserController::class, 'myprofile']);
+Route::get('/profile/{id}', [UserController::class, 'profile']);
