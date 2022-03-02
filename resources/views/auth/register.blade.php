@@ -9,10 +9,10 @@
                     action="{{ route('register') }}" enctype="multipart/form-data">
                     @csrf
 
-                    <div class="my-reg">
+                    {{-- <div class="my-reg">
                         <input type="file" name="image" class="form-control" onchange="preview()">
                         <img id="frame" src="" width="300px" height="300px" class="m-3"/>
-                    </div>
+                    </div> --}}
                     
                     <div class="my-reg">
                         <label for="first_name" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">

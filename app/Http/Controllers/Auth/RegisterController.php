@@ -76,13 +76,16 @@ class RegisterController extends Controller
      * @throws \Illuminate\Validation\ValidationException
      */
     protected function create(array $data)
-    // protected function create(Request $data)
+    // protected function create(Request $request)
     {
-     
-        $imageName = time().'.'.$data['image']->extension(); 
-        $destination = public_path('/profile_pics');
+        // $request = request();
+
+        // $profileImage = $request->file('image');
+        // dd(get_defined_vars());
+        // $imageName = time().'.'.$data['image']->extension(); 
+        // $destination = public_path('/profile_pics');
         
-        $data['image']->move($destination,$imageName);
+        // $data['image']->move($destination,$imageName);
         // dd(get_defined_vars());
         $user = User::create([
             'first_name' => $data['first_name'],
@@ -91,7 +94,7 @@ class RegisterController extends Controller
             'born' => $data['born'],
             'nickname' => $data['nickname'],
             'mobile' => $data['phone'],
-            'image'=>$imageName,
+            // 'image'=>$imageName,
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);

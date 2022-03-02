@@ -2,10 +2,10 @@
 
 @section('content')
 <div class="flex form-login">
-  {!!  asset('storage/file.txt'); !!}
+  {{-- {!!  asset('storage/file.txt'); !!} --}}
 
     <div class="card card-profile" style="width: 18rem;">
-        <img class="card-img-top " src="{{ asset('profile_pics/'.Auth::user()->image) }}" alt="No image">
+        <img class="card-img-top " src="{{ ('profile_pics\\'.Auth::user()->image) }}" alt="No image">
         <a href="/uploadphoto" class="btn-hero-bt">  Edit Profile</a>
         <div class="card-body">
           <p class="card-text">{{ Auth::user()->details }} </p>
