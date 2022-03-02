@@ -14,7 +14,7 @@ class Post extends Model
     use Sluggable;
 
 
-    protected $fillable = ['title','slug','description','image_path','user_id'];
+    protected $fillable = ['title','slug','description','image','user_id'];
 
     public function user()
     {

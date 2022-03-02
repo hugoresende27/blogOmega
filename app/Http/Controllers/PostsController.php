@@ -71,6 +71,12 @@ class PostsController extends Controller
             // 'image'=>'required|mimes:jpg,png,jpeg|max:5048'
         ]);
 
+        if (isset($request->image)){
+            $imageName = time().'.'.$request->image->extension();  
+            $destination = asset('images/posts_pics');
+            $request->image->move($destination,$imageName);
+        } 
+
         //$newImageName = uniqid(). '.' .$request->image->extension();
         // $newImageName = time().'.'.$request->image->extension();  
         // //dd($newImageName);
@@ -79,13 +85,13 @@ class PostsController extends Controller
 
         $slug = SlugService::createSlug(Post::class, 'slug', $request->title);
 
-        //dd($request);
+        // dd(get_defined_vars());
 
         Post::create([
             'title'=>$request->input('title'),
             'description'=>$request->input('description'),
             'slug'=>$slug,
-            //'image_path'=>$newImageName,
+            'image'=>$imageName,
             'user_id'=>auth()->user()->id
         ]);
 

@@ -2,12 +2,15 @@
 
 @section('content')
 
-<div class="main-content-posts">
+<div class="main-content-posts  form-reg">
 
     <div class="m-auto text-center w-4/5">
         <div class="py-15 border-b border-gray-200">
             <h1 class="text-6xl">
-                 Posts
+                <?php
+                $d=mktime(11, 14, 54, 8, 12, 2014);
+                echo "<h1 class='welcome-title'>" . date("h:i:sa  ", $d)."<h1>";
+                ?>
             </h1>
         </div>
     </div>
@@ -28,9 +31,9 @@
 
     <div class="pt-15 w-4/5 m-auto">
         <a href="/blog/create"
-            class="bg-blue-500 uppercase bg-transparent text-gray-100 text-s font-extrabold py-3 rounded-3xl px-5"    
+            class="btn-hero-bt"    
         >
-            Criar um post
+            Share something
         </a>
     </div>
         
@@ -41,9 +44,9 @@
 
         {{-- {{ dd($p->image_path) }} --}}
         <div class="all-posts">
-            {{-- <div>
-                <img class="mt-10 rounded-2xl" src="{{ URL('/images/'.$p->image_path) }}" width="700" alt="img_do_post">
-            </div> --}}
+            <div>
+                <img class="mt-10 rounded-2xl" src="{{ asset('/images/posts_pics/'.$p->image) }}" width="700" alt="img_do_post">
+            </div>
             <div>
                 <h2 class="text-green-300 font-bold text-5xl pb-4">
                     {{ $p->title }}
@@ -58,7 +61,7 @@
                 </p>
                 
                 <a href="/blog/{{ $p->slug }}" class="hover:text-black uppercase bg-blue-500 text-gray-100 text-lg font-extrabold py-4 px-8 rounded-3xl">
-                    Continue a ler
+                    Read more
                 </a>
 
                  {{------------- BOTÃO EDIT APENAS VISIVEL SE AUTENTICADO E AUTENTICADO CORRESPONDER AO AUTOR DO POST --}}

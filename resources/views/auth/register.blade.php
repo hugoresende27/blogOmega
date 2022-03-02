@@ -6,7 +6,7 @@
         
 
                 <form class="w-full px-6 space-y-6 sm:px-10 sm:space-y-8" method="POST"
-                    action="{{ route('register') }}">
+                    action="{{ route('register') }}" enctype="multipart/form-data">
                     @csrf
 
                     <div class="my-reg">
@@ -98,7 +98,7 @@
                         </label>
 
                         <input id="born" type="date" class="form-input w-full @error('born')  border-red-500 @enderror"
-                            name="born" value="{{ old('sex') }}" required autocomplete="born" autofocus max="2005-12-31" required>
+                            name="born" value="{{ old('born') }}" required autocomplete="born" autofocus max="2005-12-31" required>
                             
                         @error('sex')
                             <p class="text-red-500 text-xs italic mt-4">

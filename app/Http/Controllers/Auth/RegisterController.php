@@ -4,15 +4,17 @@ namespace App\Http\Controllers\Auth;
 
 use App\Models\User;
 use App\Mail\WelcomeMail;
+// use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+
 use Illuminate\Support\Facades\Mail;
 use App\Providers\RouteServiceProvider;
 
 use Illuminate\Support\Facades\Validator;
+use Symfony\Component\Console\Input\Input;
 use Illuminate\Foundation\Auth\RegistersUsers;
-
-use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
@@ -75,21 +77,19 @@ class RegisterController extends Controller
     protected function create(array $data)
     // protected function create(Request $data)
     {
-        // dd(get_defined_vars());
-
-        $imageName = time().'.'.$data['image'];  
      
-        $data['image']->store(public_path('images/profile_pics'), $imageName);
-        
-
+        $imageName = time().'.'.$data['image']->extension(); 
+        $destination = asset('images/profile_pics');
+        $data['image']->move($destination,$imageName);
+        // dd(get_defined_vars());
         $user = User::create([
             'first_name' => $data['first_name'],
             'last_name' => $data['last_name'],
             'sex' => $data['sex'],
             'born' => $data['born'],
             'nickname' => $data['nickname'],
-            'phone' => $data['phone'],
-            'image' => $imageName,
+            'mobile' => $data['phone'],
+            'image'=>$imageName,
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
@@ -105,7 +105,10 @@ class RegisterController extends Controller
         Mail::to($email)->send(new WelcomeMail($data));
         
   
-
+        // uploadPhoto();
         return $user;
+        // return redirect('/register_2');
     }
+
+   
 }

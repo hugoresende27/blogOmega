@@ -11,7 +11,11 @@ body { overflow-x: hidden; /* Hide scrollbars */
     font-family: 'Roboto', sans-serif;
     /* font-family: 'Consolas',sans-serif; */
 }
-
+.admin-menu{
+    background-color: yellow;
+    width: fit-content;
+    position: absolute;
+}
 .main-content{
     min-height: 81vh;
     background-color: #000;
@@ -39,7 +43,7 @@ body { overflow-x: hidden; /* Hide scrollbars */
 .form-login{
     background-color: rgb(5, 53, 5);
     text-align: center;
-    height: 80vh;
+    min-height: 80vh;
     display: flex;
     flex-direction: column; /*coloca tudo em coluna*/
     align-items: center;    /*alinha horizontalmente*/
@@ -48,6 +52,7 @@ body { overflow-x: hidden; /* Hide scrollbars */
 .form-reg{
     background-color: rgb(5, 53, 5);
     text-align: center;
+    min-height: 83vh;
     display: flex;
     flex-direction: column; /*coloca tudo em coluna*/
     align-items: center;    /*alinha horizontalmente*/
@@ -121,6 +126,19 @@ display: block;}
     align-items: center;    /*alinha horizontalmente*/
     justify-content: center;
 
+}
+
+.label-tags{
+    background-color: black;
+    padding: 5px;
+}
+
+.card-profile {
+    background-color: grey;
+}
+.card-img-top{
+    min-width: 100px;
+    min-height: 100px;
 }
 
 /*///////////////////////////////HIDE ME //////////////////////////////////////*/

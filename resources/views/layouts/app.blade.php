@@ -32,7 +32,7 @@
 
                     @if (isset(Auth::user()->level) && Auth::user()->level == 3)
 
-                        <div class="float-left">
+                        <div class="admin-menu">
                             
                             
 
@@ -60,9 +60,9 @@
                         <a class=" my-links-nav" href="/">Home</a>
                         <a class=" my-links-nav" href="/blog">Blog</a>
                     @else
-                        <span>Bem vindo {{ Auth::user()->name }}</span>
+                        <span>Bem vindo  {{ Auth::user()->first_name }} </span>
 
-                        <a class="  my-links-nav" href="/">Home</a>
+                        <a class="  my-links-nav" href="/myprofile">My Profile</a>
                         <a class="  my-links-nav" href="/blog">Blog</a>
 
                         <a href="{{ route('logout') }}"
