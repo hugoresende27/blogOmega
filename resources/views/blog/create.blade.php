@@ -2,7 +2,6 @@
 
 @section('content')
 
- 
      {{-- DEBUG DE ERROS NO FORM-------------------- --}}
      @if ($errors->any())
         <div class="m-auto w-4/5">

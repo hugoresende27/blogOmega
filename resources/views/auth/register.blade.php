@@ -155,7 +155,7 @@
                         </button>
 
                         <p class="w-full text-xs text-center text-gray-700 my-6 sm:text-sm sm:my-8">
-                            {{ __('Já tem conta?') }}
+                            {{ __('Already have an account?') }}
                             <a class="" href="{{ route('login') }}">
                                 {{ __('Login') }}
                             </a>

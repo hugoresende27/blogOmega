@@ -38,12 +38,12 @@ class UserController extends Controller
         //Also note you could set a default height for all the images and Cloudinary does a good job of handling and rendering the image.
                 Cloudder::upload($request->file('image'), null, array(
                     "folder" => "omega",  "overwrite" => FALSE,
-                    "resource_type" => "image", "responsive" => TRUE, "transformation" => array("quality" => "70", "width" => "400", "height" => "400", "crop" => "scale")
+                    "resource_type" => "image", "responsive" => TRUE, "transformation" => array("quality" => "100", "crop" => "scale")
                 ));
                     $public_id = Cloudder::getPublicId();
 
-                    $width = 250;
-                    $height = 250;
+                    $width = 400;
+                    $height = 400;
 
                     $image_url = Cloudder::show(Cloudder::getPublicId(), ["width" => $width, "height" => $height, "crop" => "scale", "quality" => 70, "secure" => "true"]);
             // }
@@ -68,6 +68,7 @@ class UserController extends Controller
                 'born' => $request->born,
                 'nickname' => $request->nickname,
                 'mobile' => $request->phone,
+                'details' => $request->details,
                 'image'=>$image_url
             ]);
 

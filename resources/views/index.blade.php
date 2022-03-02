@@ -16,7 +16,7 @@
                 @if (Route::has('register'))
                
                     <a href="{{ route('register') }}"
-                        class="btn-hero"
+                        class="btn-hero-welcome"
                     >Register</a>
                
                 @endif

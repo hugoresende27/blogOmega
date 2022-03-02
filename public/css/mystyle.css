@@ -33,6 +33,10 @@ body { overflow-x: hidden; /* Hide scrollbars */
     padding: 50px;
     width: 100%;
     text-align: left;
+    display: flex;
+    flex-direction: column; /*coloca tudo em coluna*/
+    align-items: center;    /*alinha horizontalmente*/
+    justify-content: center;
 }
 .my-nav{
     right: 5%;
@@ -102,10 +106,29 @@ display: block;}
     transform: translate(-50%, -50%);
 
 }
+.btn-hero-welcome {
+    background-color: darkgreen;
+    color: #fff;
+    text-decoration: none;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 50px;
+    font-size: 3rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
 
 .btn-hero:hover{
     background-color: #000;
     color: #fff;
+}
+.btn-hero-welcome:hover{
+    background-color: greenyellow;
+    color: #000;
 }
 
 .btn-hero-bt{
@@ -146,12 +169,17 @@ display: block;}
     padding: 5px;
 }
 
-.card-profile {
-    background-color: grey;
-}
+
 .card-img-top{
     min-width: 100px;
     min-height: 100px;
+    max-width: auto;
+    max-height: 350px;
+}
+
+.image-input{
+    max-width: auto;
+    max-height: 600px;
 }
 
 .all-posts{
@@ -164,6 +192,36 @@ display: block;}
     padding: 10px;
     margin: 20px;
     border-radius: 30%;
+}
+
+.card-profile {
+    background-color: grey;
+    /* display : inline-flex; */
+    /* width: 100%; */
+}
+
+.left-side-card-profile{
+    position: absolute;
+    left: 5%;
+    width: 30%;
+    display : inline-flex;
+   
+}
+.left-side-card-profile img{
+    border-radius: 20px;
+}
+
+.right-side-card-profile{
+    position: absolute;
+    left: 15%;
+    display : inline-flex;
+    width: 70%;
+    
+}
+.edit-btn{
+    position: absolute;
+    left: 15%;
+    top: 15%;
 }
 
 
@@ -195,7 +253,7 @@ display: block;}
     }
 }
 
-/*///////////////////////////////INPUT LICENCE PLATE //////////////////////////////////////*/
+/*///////////////////////////////FOOTER  //////////////////////////////////////*/
 
 footer{
     padding: 0.5rem;
@@ -237,4 +295,54 @@ footer a{
 
 footer a:hover{
     color: var(--gold-cor);
+}
+
+
+
+/*///////////////MEDIA QUERYS////////////////////////////////////////////////////////////////////*/
+@media(max-width: 480px)        /*para ecras mais pequenos*/
+
+{
+
+    .right-side-card-profile{   
+        left: 35%;       
+    }
+    .left-side-card-profile img{  
+        min-height: 200px;
+        min-width: 100px;
+    }
+
+    .my-top-nav{
+        min-height: 100px;
+        padding: 15px;
+    }
+
+    .my-nav{
+      
+        display: flex; 
+        flex-direction: column; /*coloca tudo em coluna*/
+        align-items: center;    /*alinha horizontalmente*/
+        justify-content: center;     
+    }
+
+    .admin-menu{
+      position: relative;
+      
+
+    }
+
+    .welcome-title{
+      margin-top: 80px;   
+    }
+}
+@media (max-width : 600px)
+{
+    .right-side-card-profile{      
+        left: 35%;      
+    }
+    .left-side-card-profile img{   
+        min-height: 200px;
+        min-width: 140px;
+    }
+
 }

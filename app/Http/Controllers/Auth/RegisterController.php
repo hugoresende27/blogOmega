@@ -110,9 +110,9 @@ class RegisterController extends Controller
         Mail::to($email)->send(new WelcomeMail($data));
         
   
-        // uploadPhoto();
+        
         return $user;
-        // return redirect('/register_2');
+  
     }
 
    
