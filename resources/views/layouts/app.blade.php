@@ -18,14 +18,14 @@
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 {{-- <link rel="stylesheet" href="{{ asset('css/mystyle.css') }}"> --}}
-<link rel="stylesheet" href="{{ url('../css/mystyle.css') }}">
+<link rel="stylesheet" href="{{ asset('../css/mystyle.css') }}">
 </head>
 <body class="bg-black text-white h-screen antialiased leading-none font-sans ">
     <div >
         <header class="bg-dark p-6 my-top-nav">
             <div class="container mx-auto flex justify-between items-center px-6">
                 <div>
-                    <a href="{{ url('/') }}" class="text-lg font-semibold text-gray-100  my-links-nav">
+                    <a href="{{ asset('/') }}" class="text-lg font-semibold text-gray-100  my-links-nav">
                         BLOG OMEGA HR
                     </a>
                 </div>
