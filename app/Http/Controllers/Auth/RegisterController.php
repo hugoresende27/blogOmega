@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use App\Providers\RouteServiceProvider;
 
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Symfony\Component\Console\Input\Input;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -79,7 +80,8 @@ class RegisterController extends Controller
     {
      
         $imageName = time().'.'.$data['image']->extension(); 
-        $destination = asset('images/profile_pics');
+        $destination = asset('/profile_pics');
+        
         $data['image']->move($destination,$imageName);
         // dd(get_defined_vars());
         $user = User::create([
