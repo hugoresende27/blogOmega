@@ -120,6 +120,19 @@ display: block;}
     color: #fff;
 }
 
+.btn-hero-bt2{
+    background-color: #fff;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 4px;
+    font-weight: 900;
+    text-transform: uppercase;
+    border-radius: 5px;
+}
+.btn-hero-bt2:hover{
+    background-color: #000;
+    color: #fff;
+}
+
 .welcome-title{
     background-color: green;
     padding: 10px; 
@@ -140,6 +153,19 @@ display: block;}
     min-width: 100px;
     min-height: 100px;
 }
+
+.all-posts{
+    display: flex;
+}
+
+.all-posts img{
+    width: 300px;
+    height: 300px;
+    padding: 10px;
+    margin: 20px;
+    border-radius: 30%;
+}
+
 
 /*///////////////////////////////HIDE ME //////////////////////////////////////*/
 
