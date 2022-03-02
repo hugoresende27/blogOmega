@@ -2,13 +2,7 @@
 
 @section('content')
 
-    <div class="m-auto text-center w-4/5">
-        <div class="py-15 text-left">
-            <h1 class="welcome-title">
-                Create Post
-            </h1>
-        </div>
-    </div>
+ 
      {{-- DEBUG DE ERROS NO FORM-------------------- --}}
      @if ($errors->any())
         <div class="m-auto w-4/5">
@@ -25,6 +19,16 @@
 
     {{-- FORM CREATE-------------------- --}}
     <div class="form-login">
+
+        <div class="m-auto text-center w-4/5">
+            <div class="py-15 text-left">
+                <h1 class="welcome-title">
+                    Create Post
+                </h1>
+            </div>
+        </div>
+
+        
         <form action="/blog" method="POST" enctype="multipart/form-data">
             @csrf
 

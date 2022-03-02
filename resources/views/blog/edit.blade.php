@@ -2,6 +2,8 @@
 
 @section('content')
 
+
+
     <div class="m-auto text-center w-4/5">
         <div class="py-15 text-left">
             <h1 class="text-6xl">

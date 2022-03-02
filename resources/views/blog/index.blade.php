@@ -45,7 +45,7 @@
         {{-- {{ dd($p->image_path) }} --}}
         <div class="all-posts">
             <div>
-                <img class="mt-10 rounded-2xl" src="{{ asset('/images/posts_pics/'.$p->image) }}" width="700" alt="img_do_post">
+                <img class="mt-10 rounded-2xl" src="{{ asset('/post_pics/'.$p->image) }}" width="700" alt="img_do_post">
             </div>
             <div>
                 <h2 class="text-green-300 font-bold text-5xl pb-4">

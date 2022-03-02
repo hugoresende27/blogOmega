@@ -73,7 +73,7 @@ class PostsController extends Controller
 
         if (isset($request->image)){
             $imageName = time().'.'.$request->image->extension();  
-            $destination = asset('images/posts_pics');
+            $destination = public_path('/post_pics');
             $request->image->move($destination,$imageName);
         } 
 

@@ -2,6 +2,7 @@
 /public/hot
 /public/storage
 /public/images/profile_pics
+/public/profile_pics
 /storage/*.key
 /vendor
 .env
