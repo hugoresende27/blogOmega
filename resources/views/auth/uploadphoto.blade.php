@@ -2,9 +2,17 @@
 
 @section('content')
 <div class="form-reg">
+      {{-- SE HOUVER MENSAGEM MOSTRA AQUI ---------------- --}}
+      @if (isset($message))
+      <div id='hideMe'  >
+          <p class="message-box-2">
+              {{ $message }}
+          </p>
+      </div>
+      @endif
 
  <form action="/uploadphoto_save"  method="POST" enctype="multipart/form-data">
-   
+   {{-- {{ dd(get_defined_vars()) }} --}}
     @csrf
     <div class="m-3">
         <img src="{{ Auth::user()->image }}" alt="old_image">
@@ -66,7 +74,7 @@
         <textarea id="details" type="text" class="form-input w-full @error('details')  border-red-500 @enderror"
             name="details" value="{{ Auth::user()->details }}" cols="35" rows="3"></textarea>
 
-        @error('nickname')
+        @error('details')
         <p class="text-red-500 text-xs italic mt-4">
             {{ $message }}
         </p>
@@ -81,7 +89,7 @@
         <input id="phone" type="tel" class="form-input w-full @error('phone')  border-red-500 @enderror"
             name="phone" value="{{ Auth::user()->mobile }}" pattern="[0-9]{9}" autocomplete="phone" autofocus>
 
-        @error('nickname')
+        @error('phone')
         <p class="text-red-500 text-xs italic mt-4">
             {{ $message }}
         </p>
@@ -95,8 +103,9 @@
 
         <select id="sex" type="text" class="form-input w-full @error('sex')  border-red-500 @enderror"
             name="sex" value="{{ Auth::user()->sex }}" required autocomplete="sex" autofocus>
-            <option value="M">M</option>
-            <option value="F">F</option>
+            <option value="M">Masculine</option>
+            <option value="F">Feminine</option>
+            <option value="O">Other</option>
         </select>
         @error('sex')
             <p class="text-red-500 text-xs italic mt-4">
@@ -111,14 +120,33 @@
         </label>
 
         <input id="born" type="date" class="form-input w-full @error('born')  border-red-500 @enderror"
-            name="born" value="{{ Auth::user()->born }}" required autocomplete="born" autofocus max="2005-12-31" required>
+            name="born" value="{{ Auth::user()->born }}"  autocomplete="born" autofocus max="2005-12-31" required>
             
-        @error('sex')
+        @error('born')
             <p class="text-red-500 text-xs italic mt-4">
                 {{ $message }}
             </p>
         @enderror
     </div>
+
+    <div class="my-reg">
+        <label for="country" class="label-tags">
+            {{ __('Country') }}:
+        </label>
+
+        <select id="country" type="text" class="form-input w-full @error('country')  border-red-500 @enderror"
+            name="country" value="{{ Auth::user()->country }}" required autocomplete="country" autofocus>
+            @foreach ($countries as $c)
+                <option value="{{ $c->name }}">{{ $c->name }}</option>
+            @endforeach
+        </select>
+        @error('country')
+            <p class="text-red-500 text-xs italic mt-4">
+                {{ $message }}
+            </p>
+        @enderror
+    </div>
+
 
     
     <button type="submit">Upload</button>

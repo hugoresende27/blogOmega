@@ -2,8 +2,10 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
 use App\Models\User;
+use Illuminate\Database\Seeder;
+use Database\Seeders\UsersSeeder;
+use Database\Seeders\CountrySeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,6 +16,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-         $this->call(UsersSeeder::class);
+         $this->call([UsersSeeder::class,
+                     CountrySeeder::class
+                    ]);
     }
 }

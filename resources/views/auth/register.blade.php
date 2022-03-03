@@ -45,7 +45,7 @@
 
                   
 
-                    <div class="my-reg">
+                    {{-- <div class="my-reg">
                         <label for="nickname" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
                             {{ __('Nickname') }}:
                         </label>
@@ -105,7 +105,7 @@
                                 {{ $message }}
                             </p>
                         @enderror
-                    </div>
+                    </div> --}}
 
                     <div class="my-reg">
                         <label for="email" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\User;
+use File;
+
 
 class AdminController extends Controller
 {
@@ -17,5 +19,19 @@ class AdminController extends Controller
 
         $all_users = User::all();
         return view ('admin.all', compact ('all_users'));
+    }
+
+    function teste()
+    {
+        // $json = File::get("../database/data/country.json");
+        $json = File::get("../database/data/country.json");
+        $countries = json_decode($json);
+        // dd(get_defined_vars());
+        // dd($countries);
+        foreach ($countries as $key => $value) {
+            // dd($key);
+            
+        }
+        
     }
 }

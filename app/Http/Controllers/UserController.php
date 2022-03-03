@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Country;
 use Illuminate\Http\Request;
 use JD\Cloudder\Facades\Cloudder;
 use Illuminate\Support\Facades\Auth;
@@ -18,7 +19,11 @@ class UserController extends Controller
     }
 
     public function uploadPhoto(){
-        return view ('auth.uploadphoto');
+
+        $countries = Country::all();
+        if (Auth::user()->image == null) $message = "Upload a photo !";
+        // dd(get_defined_vars());
+        return view ('auth.uploadphoto', compact ('countries','message'));
     }
     public function uploadPhoto_save(Request $request){
 

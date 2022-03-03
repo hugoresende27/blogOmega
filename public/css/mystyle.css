@@ -256,6 +256,16 @@ display: block;}
     padding: 10px;
     border-radius: 5px;
 }
+.message-box-2{
+    background-color: darkblue;
+    width: 400px;
+    text-align: center;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    margin-top: 1%;
+    padding: 10px;
+    border-radius: 5px;
+}
 
 
 /*///////////////////////////////HIDE ME //////////////////////////////////////*/

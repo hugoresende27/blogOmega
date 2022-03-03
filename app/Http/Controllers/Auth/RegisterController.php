@@ -44,10 +44,10 @@ class RegisterController extends Controller
      *
      * @return void
      */
-    // public function __construct()
-    // {
-    //     $this->middleware('auth');
-    // }
+    public function __construct()
+    {
+        $this->middleware('guest');
+    }
 
     /**
      * Get a validator for an incoming registration request.
@@ -90,10 +90,10 @@ class RegisterController extends Controller
         $user = User::create([
             'first_name' => $data['first_name'],
             'last_name' => $data['last_name'],
-            'sex' => $data['sex'],
-            'born' => $data['born'],
-            'nickname' => $data['nickname'],
-            'mobile' => $data['phone'],
+            // 'sex' => $data['sex'],
+            // 'born' => $data['born'],
+            // 'nickname' => $data['nickname'],
+            // 'mobile' => $data['phone'],
             // 'image'=>$imageName,
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
@@ -108,9 +108,7 @@ class RegisterController extends Controller
   
         ]);
         Mail::to($email)->send(new WelcomeMail($data));
-        
   
-        
         return $user;
   
     }

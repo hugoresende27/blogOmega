@@ -30,6 +30,7 @@ Auth::routes();
 
 Route::get('/mailtemplate', [AdminController::class, 'viewMailTemplate'] );
 Route::get('/allusers', [AdminController::class, 'viewAllusers'] );
+Route::get('/teste', [AdminController::class, 'teste'] );
 
 
 Route::get('/uploadphoto', [UserController::class, 'uploadPhoto']);
