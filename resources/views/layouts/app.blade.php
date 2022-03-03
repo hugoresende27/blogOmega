@@ -82,6 +82,15 @@
             </div>
         </header>
 
+            {{-- SE HOUVER MENSAGEM MOSTRA AQUI ---------------- --}}
+            @if (session()->has('message'))
+            <div id='hideMe'  >
+                <p class="message-box">
+                    {{ session()->get('message') }}
+                </p>
+            </div>
+            @endif
+
 
         <div class="main-content">
              @yield('content')

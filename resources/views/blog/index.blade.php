@@ -15,14 +15,7 @@
         </div>
     </div>
 
-    {{-- SE HOUVER MENSAGEM MOSTRA AQUI ---------------- --}}
-    @if (session()->has('message'))
-        <div class="m-auto mt-10 pl-2 w-4/5">
-            <p class="mb-4 text-gray-50 bg-green-500 rounded-2xl py-4 px-4 w-2/6">
-                {{ session()->get('message') }}
-            </p>
-        </div>
-    @endif
+
 
 
 
@@ -77,7 +70,7 @@
                     </a>
 
                     {{------------- BOTÃO EDIT APENAS VISIVEL SE AUTENTICADO E AUTENTICADO CORRESPONDER AO AUTOR DO POST --}}
-                    @if (isset(Auth::user()->id) && Auth::user()->id == $p->user_id || isset(Auth::user()->level) && Auth::user()->level == 3))
+                    @if (isset(Auth::user()->id) && Auth::user()->id == $p->user_id || isset(Auth::user()->level) && Auth::user()->level == 3)
 
                     <div class="but-ger">
                         <span class="">
@@ -90,7 +83,8 @@
                             <form action="/blog/{{ $p->slug }}" method="POST" class="mt-5">
                                 @csrf
                                 @method('delete')
-                                <button type="submit" class="btn-hero-bt">
+                                <button type="submit" class="btn-hero-bt"
+                                onclick="return confirm('Are you sure?')">
                                     Delete
                                 </button>
                             </form>              

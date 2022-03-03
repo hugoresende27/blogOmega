@@ -7,12 +7,13 @@
    
     @csrf
     <div class="m-3">
+        <img src="{{ Auth::user()->image }}" alt="old_image">
         <input type="file" name="image" class="form-control" onchange="preview()" >
 
         <img id="frame" src="" class="image-input" class="m-3"/>
     </div>
     <div class="my-reg">
-        <label for="first_name" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
+        <label for="first_name" class="label-tags">
             {{ __('First Name') }}:
         </label>
 
@@ -26,7 +27,7 @@
         @enderror
     </div>
     <div class="my-reg">
-        <label for="last_name" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
+        <label for="last_name" class="label-tags">
             {{ __('Last Name') }}:
         </label>
 
@@ -43,7 +44,7 @@
   
 
     <div class="my-reg">
-        <label for="nickname" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
+        <label for="nickname" class="label-tags">
             {{ __('Nickname') }}:
         </label>
 
@@ -58,7 +59,7 @@
     </div>
 
     <div class="my-reg">
-        <label for="details" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
+        <label for="details" class="label-tags">
             {{ __('About me') }}:
         </label><br>
 
@@ -73,7 +74,7 @@
     </div>
 
     <div class="my-reg">
-        <label for="phone" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
+        <label for="phone" class="label-tags">
             {{ __('Phone') }}:
         </label>
 
@@ -88,7 +89,7 @@
     </div>
 
     <div class="my-reg">
-        <label for="sex" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
+        <label for="sex" class="label-tags">
             {{ __('Sex') }}:
         </label>
 
@@ -105,7 +106,7 @@
     </div>
 
     <div class="my-reg">
-        <label for="born" class="block text-gray-700 text-sm font-bold mb-2 sm:mb-4">
+        <label for="born" class="label-tags">
             {{ __('Date of Birth') }}:
         </label>
 

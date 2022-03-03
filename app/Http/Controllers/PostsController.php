@@ -72,6 +72,8 @@ class PostsController extends Controller
             // 'image'=>'required|mimes:jpg,png,jpeg|max:5048'
         ]);
 
+        $image_url = "";
+
         if (isset($request->image)){
             //Also note you could set a default height for all the images and Cloudinary does a good job of handling and rendering the image.
             Cloudder::upload($request->file('image'), null, array(
@@ -84,18 +86,10 @@ class PostsController extends Controller
                 $height = 400;
 
                 $image_url = Cloudder::show(Cloudder::getPublicId(), ["width" => $width, "height" => $height, "crop" => "scale", "quality" => 70, "secure" => "true"]);
-        // }
-//////////////////////////////////////////////////////////////////////////
-        
-            // dd(get_defined_vars());
-//////////////////////////////////////////////////////////////////////////
+
     
             } 
-            else 
-            {
-                $image_url = User::where('id',$auth_id)->first();
-                $image_url = $image_url->image;
-            }
+        
 
         $slug = SlugService::createSlug(Post::class, 'slug', $request->title);
 
@@ -147,24 +141,45 @@ class PostsController extends Controller
         $request->validate([
             'title'=>'required',
             'description'=>'required',
-            // 'image'=>'required|mimes:jpg,png,jpeg|max:5048'
+          
         ]);
+        $image_url = "";
+        if (isset($request->image)){
+            //Also note you could set a default height for all the images and Cloudinary does a good job of handling and rendering the image.
+            Cloudder::upload($request->file('image'), null, array(
+                "folder" => "omega",  "overwrite" => FALSE,
+                "resource_type" => "image", "responsive" => TRUE, "transformation" => array("quality" => "100", "crop" => "scale")
+            ));
+                $public_id = Cloudder::getPublicId();
 
+                $width = 400;
+                $height = 400;
 
-        //$newImageName = time().'.'.$request->image->extension(); 
-        //$request->image->move(public_path('images'), $newImageName);
-        //dd($request->image);
+                $image_url = Cloudder::show(Cloudder::getPublicId(), ["width" => $width, "height" => $height, "crop" => "scale", "quality" => 70, "secure" => "true"]);
+
+            } 
+            else 
+            {
+                // $x = $slug;
+                // dd(get_defined_vars());
+                $image_url = Post::where('slug',$slug)->first();
+                $image_url = $image_url->image;
+            }
+
+           
+
+       
         Post::where('slug', $slug)
             ->update([
                 'title'=>$request->input('title'),
                 'description'=>$request->input('description'),
                 'slug'=>SlugService::createSlug(Post::class, 'slug', $request->title),
-                // 'image_path'=>$newImageName,
+                'image'=>$image_url,
                 'user_id'=>auth()->user()->id
 
             ]);
     
-        return redirect('/blog')->with ('message', 'O seu post foi atualizado!');
+        return redirect('/blog')->with ('message', 'Post updated!');
          
     }
 
