@@ -3,17 +3,7 @@
 @section('content')
 
      {{-- DEBUG DE ERROS NO FORM-------------------- --}}
-     @if ($errors->any())
-        <div class="m-auto w-4/5">
-            <ul>
-                @foreach ($errors->all() as $erro)
-                    <li class="mb-4 text-gray-50 bg-red-700 rounded-2xl py-4 px-4 w-1/5">
-                        {{ $erro }}                   
-                    </li>                 
-                @endforeach
-            </ul>
-        </div>       
-     @endif
+   
 
 
     {{-- FORM CREATE-------------------- --}}
@@ -26,6 +16,17 @@
                 </h1>
             </div>
         </div>
+        @if ($errors->any())
+        <div id="hideMe">
+            <ul>
+                @foreach ($errors->all() as $erro)
+                    <p class="message-box-2">
+                        &#9888;   {{ $erro }}                  
+                    </p>                 
+                @endforeach
+            </ul>
+        </div>       
+     @endif
 
         
         <form action="/blog" method="POST" enctype="multipart/form-data">
@@ -38,7 +39,7 @@
                 </label>
 
                 <input id="title" type="text" class="form-input w-full @error('title')  border-red-500 @enderror"
-                    name="title"  required autocomplete="title" autofocus>
+                    name="title"   autocomplete="title" autofocus>
 
                 @error('title')
                 <p class="text-red-500 text-xs italic mt-4">

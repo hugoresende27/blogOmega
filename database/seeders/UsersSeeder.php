@@ -21,6 +21,22 @@ class UsersSeeder extends Seeder
                 'level' => 3
             ]
         );
+        User::firstOrCreate(
+            ['email' => 'a@a', 
+                'first_name' => 'a',
+                'last_name' => 'a',
+                'password' => bcrypt('1111'),
+                'level' => 1
+            ]
+        );
+        User::firstOrCreate(
+            ['email' => 'b@b', 
+                'first_name' => 'b',
+                'last_name' => 'b',
+                'password' => bcrypt('1111'),
+                'level' => 1
+            ]
+        );
 
         // if(config('admin.admin_name')) {
         //     User::firstOrCreate(

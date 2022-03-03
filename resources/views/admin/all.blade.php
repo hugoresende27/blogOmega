@@ -31,7 +31,8 @@
             <thead>
             <tr>
                 <th>Name</th>
-                <th>Password</th>
+                <th>Location</th>
+                <th>Created at</th>
             
             </tr>
             </thead>
@@ -39,7 +40,9 @@
 
             @foreach ($all_users as $user)
             <tr>
-                <td>{{ $user->name }}</td>
+                <td>{{ $user->first_name." ".$user->last_name }} </td>
+                <td>{{ $user->country }}</td>
+                <td>{{ $user->created_at }}</td>
             
             </tr>
             @endforeach

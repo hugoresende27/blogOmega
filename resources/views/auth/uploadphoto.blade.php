@@ -6,12 +6,12 @@
       @if (isset($message))
       <div id='hideMe'  >
           <p class="message-box-2">
-              {{ $message }}
+            &#128712;   {{ $message }}
           </p>
       </div>
       @endif
 
- <form action="/uploadphoto_save"  method="POST" enctype="multipart/form-data">
+ <form action="/uploadphoto_save"  method="POST" enctype="multipart/form-data" class="form-box">
    {{-- {{ dd(get_defined_vars()) }} --}}
     @csrf
     <div class="m-3">
@@ -72,7 +72,7 @@
         </label><br>
 
         <textarea id="details" type="text" class="form-input w-full @error('details')  border-red-500 @enderror"
-            name="details" value="{{ Auth::user()->details }}" cols="35" rows="3"></textarea>
+            name="details"cols="35" rows="3">{{ Auth::user()->details }}</textarea>
 
         @error('details')
         <p class="text-red-500 text-xs italic mt-4">
@@ -120,7 +120,7 @@
         </label>
 
         <input id="born" type="date" class="form-input w-full @error('born')  border-red-500 @enderror"
-            name="born" value="{{ Auth::user()->born }}"  autocomplete="born" autofocus max="2005-12-31" required>
+            name="born" value="{{ Auth::user()->born }}"  autocomplete="born" autofocus max="2005-12-31" >
             
         @error('born')
             <p class="text-red-500 text-xs italic mt-4">

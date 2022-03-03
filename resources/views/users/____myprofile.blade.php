@@ -22,9 +22,9 @@
               <p> <span class="label-tags">    Phone  {{ Auth::user()->mobile }} </span></p>
               <p> <span class="label-tags">    Email  {{ Auth::user()->email }} </span></p>
               <p> <span class="label-tags">    Sex  {{ Auth::user()->sex }} </span></p>
-              <p> <span class="label-tags">    Date of Birth  {{ Auth::user()->born }} </span></p>
-              <p> <span class="label-tags">    Location  {{ Auth::user()->city }} </span></p>
-              <p> <span class="label-tags">    Country  {{ Auth::user()->country }} </span></p>
+                      
+              <p> <span class="label-tags">    Date of Birth  {{ Auth::user()->born }} </span></p>            
+              <p> <span class="label-tags">    Location  {{ Auth::user()->country }} </span></p>
             </div>
 
         </div>

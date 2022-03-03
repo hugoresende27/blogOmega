@@ -29,7 +29,10 @@ class AdminController extends Controller
         // dd(get_defined_vars());
         // dd($countries);
         foreach ($countries as $key => $value) {
-            // dd($key);
+            foreach ($value as $i){
+                dd($i);
+            }
+           
             
         }
         

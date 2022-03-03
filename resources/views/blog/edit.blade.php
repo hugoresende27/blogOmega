@@ -35,6 +35,12 @@
         <form action="/blog/{{ $post->slug }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
+               {{-- BOTÃO SUBMIT-------------------- --}}
+            <button type="submit"
+                    class="btn-hero-bt">
+                    Post
+
+            </button>
 
       
 

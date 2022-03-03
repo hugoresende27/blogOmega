@@ -21,7 +21,8 @@ class UserController extends Controller
     public function uploadPhoto(){
 
         $countries = Country::all();
-        if (Auth::user()->image == null) $message = "Upload a photo !";
+        $message = null;
+        if (Auth::user()->image == null) $message = "Upload your profile photo !";
         // dd(get_defined_vars());
         return view ('auth.uploadphoto', compact ('countries','message'));
     }
@@ -73,24 +74,32 @@ class UserController extends Controller
                 'born' => $request->born,
                 'nickname' => $request->nickname,
                 'mobile' => $request->phone,
+                'country' => $request->country,
                 'details' => $request->details,
                 'image'=>$image_url
             ]);
 
            
-      return redirect ('myprofile')->with('message','Profile Uploaded');
+      return redirect ('profile/'.$auth_id)->with('message','Profile Uploaded');
     }
 
-    public function myprofile()
-    {
-        return view ('users.myprofile');
-    }
+    // public function myprofile()
+    // {
+    //     return view ('users.myprofile');
+    // }
 
     public function profile( $id)
     {
         $user = User::where('id',$id)->get();
+        $curr_year = now();
+        foreach($user as $u){
+            $data = new \DateTime($u->born);
+        }
+
+        $age = $data->diff($curr_year)->format("%y");
+       
         // dd(get_defined_vars());
-        return view ('users.profile', compact('user'));
+        return view ('users.profile', compact('user','age'));
     }
 
     

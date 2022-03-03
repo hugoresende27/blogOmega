@@ -39,13 +39,16 @@
         <div class="all-posts">
 
        
-                <div class="post-img">
-                    <img class="mt-10 rounded-2xl" src="{{ $p->image }}" width="700" alt="img_do_post">
-                </div>
+               
            
 
           
                 <div class="post-text">
+
+                    <div class="post-img">
+                        <img class="mt-10 rounded-2xl" src="{{ $p->image }}" width="700" alt="img_do_post">
+                    </div>
+                    
                     <h2 class="text-green-300 font-bold text-5xl pb-4">
                         {{ $p->title }}
                     </h2>
