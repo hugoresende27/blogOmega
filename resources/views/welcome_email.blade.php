@@ -13,7 +13,7 @@
 
     </style>
     <body>
-    <h2>Enos Blog</h2>
+    <h2>Omega Blog</h2>
         <p>
             
             This is a Laravel blog project developed by me, thank you for your registration
