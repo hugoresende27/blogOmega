@@ -47,7 +47,7 @@
 
        
                 <div class="post-img">
-                    <img class="mt-10 rounded-2xl" src="{{ url('/post_pics/'.$p->image) }}" width="700" alt="img_do_post">
+                    <img class="mt-10 rounded-2xl" src="{{ $p->image }}" width="700" alt="img_do_post">
                 </div>
            
 
