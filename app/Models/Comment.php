@@ -13,4 +13,14 @@ class Comment extends Model
         'post_id',
         'user_id'
     ];
+
+    /**
+     * Get the user associated with the Comment
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function user(): HasOne
+    {
+        return $this->hasOne(User::class, 'id', 'user_id');
+    }
 }
