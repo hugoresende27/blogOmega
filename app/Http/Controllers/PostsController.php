@@ -74,24 +74,30 @@ class PostsController extends Controller
         ]);
 
         $image_url = "";
-
-        if (isset($request->image)){
+        $x = $request->file('image');
+        // dd($x);
+        if (isset($request->image))
+        {
             //Also note you could set a default height for all the images and Cloudinary does a good job of handling and rendering the image.
-            Cloudder::upload($request->file('image'), null, array(
-                "folder" => "omega",  "overwrite" => FALSE,
-                "resource_type" => "image", "responsive" => TRUE, "transformation" => array("quality" => "100", "crop" => "scale")
-            ));
-                $public_id = Cloudder::getPublicId();
+            foreach($x as $y)
+            {
+               
+            
+                Cloudder::upload($y, null, array(
+                    "folder" => "omega",  "overwrite" => FALSE,
+                    "resource_type" => "image", "responsive" => TRUE, "transformation" => array("quality" => "100", "crop" => "scale")
+                ));
+                    $public_id = Cloudder::getPublicId();
 
-                $width = 400;
-                $height = 400;
+                    $width = 400;
+                    $height = 400;
 
-                $image_url = Cloudder::show(Cloudder::getPublicId(), ["width" => $width, "height" => $height, "crop" => "scale", "quality" => 70, "secure" => "true"]);
+                    $image_url = Cloudder::show(Cloudder::getPublicId(), ["width" => $width, "height" => $height, "crop" => "scale", "quality" => 70, "secure" => "true"]);
 
-    
+        
             } 
         
-
+        }
         $slug = SlugService::createSlug(Post::class, 'slug', $request->title);
 
         // dd(get_defined_vars());

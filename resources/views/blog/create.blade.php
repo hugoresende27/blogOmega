@@ -54,9 +54,12 @@
 
             {{-- INPUT IMAGEM-------------------- --}}
             <div class="m-3">
-                <input type="file" name="image" class="form-control" onchange="preview()" >
+                <input type="file" name="image[]" id="file" onchange="preview()" multiple />
+                {{-- <input type="file" name="image" class="form-control" onchange="preview()" > --}}
                 <img id="frame" src="" width="400px" height="400px" class="m-3"/>
             </div>
+
+           
          
             
             {{-- BOTÃO SUBMIT-------------------- --}}
