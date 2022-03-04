@@ -24,7 +24,7 @@
 
     <div class="pt-15 w-4/5 m-auto mt-3">
         <a href="/blog/create"
-            class="btn-hero-bt"    
+            class="btn-share"    
         >
             Share something
         </a>
@@ -46,7 +46,7 @@
                 <div class="post-text">
 
                     <div class="post-img">
-                        <img class="mt-10 rounded-2xl" src="{{ $p->image }}" width="700" alt="img_do_post">
+                        <img class="" src="{{ $p->image }}" width="" alt="img_do_post">
                     </div>
                     
                     <h2 class="text-green-300 font-bold text-5xl pb-4">
@@ -72,20 +72,47 @@
                         Read more
                     </a>
 
+                    <section>
+                       
+
+                        <p class="label-tags">Comments</p>
+
+                        @foreach ($comments as $c)
+
+                            @if ($c->post_id == $p->id)
+                                <img src="" alt="">
+                                <p> {{ $c->comment }}</p>
+                            @endif
+                            
+                        @endforeach
+
+                        <span class="m-3">
+                            <a href="comments/create/{{ $p->id }}" class="btn-hero-bt">
+                                Add Comment
+                            </a>
+                        </span>
+                    </section>
+
                     {{------------- BOTÃO EDIT APENAS VISIVEL SE AUTENTICADO E AUTENTICADO CORRESPONDER AO AUTOR DO POST --}}
                     @if (isset(Auth::user()->id) && Auth::user()->id == $p->user_id || isset(Auth::user()->level) && Auth::user()->level == 3)
 
-                    <div class="but-ger">
-                        <span class="">
-                            <a href="/blog/{{ $p->slug }}/edit" class="btn-hero-bt2">
-                                Edit
-                            </a>
-                        </span>
+                    <div class="">
+                     
                     {{------------- BOTÃO DELETE APENAS VISIVEL SE AUTENTICADO E AUTENTICADO CORRESPONDER AO AUTOR DO POST --}}
                         <span class="">
                             <form action="/blog/{{ $p->slug }}" method="POST" class="mt-5">
                                 @csrf
                                 @method('delete')
+
+                                <span class="m-3">
+                                    <a href="/blog/{{ $p->slug }}/edit" class="btn-hero-bt">
+                                        Edit
+                                    </a>
+                                </span>
+
+                               
+
+
                                 <button type="submit" class="btn-hero-bt"
                                 onclick="return confirm('Are you sure?')">
                                     Delete

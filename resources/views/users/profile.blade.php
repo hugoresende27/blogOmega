@@ -9,7 +9,7 @@
  @foreach ($user as $item)
      
   @if ($item->id == Auth::user()->id)
-      <a href="/uploadphoto" class="btn-hero-bt edit-btn">  Edit Profile</a>
+      <a href="/uploadphoto" class=" edit-btn">  Edit My Profile</a>
   @endif
         
 

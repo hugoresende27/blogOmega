@@ -22,6 +22,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 
+use App\Models\Comment;
 use Illuminate\Http\Request;
 use JD\Cloudder\Facades\Cloudder;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
@@ -41,11 +42,11 @@ class PostsController extends Controller
     }
     public function index()
     {
-        //$post = Post::all();
+        $posts = Post::orderBy('updated_at', 'DESC')->get();
+        $comments = Comment::all();
         //dd($post);
 
-        return view ('blog.index')
-            ->with('posts', Post::orderBy('updated_at', 'DESC')->get());
+        return view ('blog.index',compact('posts','comments'));
     }
 
     /**
@@ -103,7 +104,7 @@ class PostsController extends Controller
             'user_id'=>auth()->user()->id
         ]);
 
-        return redirect('/blog')->with('message','Post adicionado');
+        return redirect('/blog')->with('message','Post Added');
     }
 
     /**

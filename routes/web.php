@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\PostsController;
+use App\Http\Controllers\CommentsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,3 +49,7 @@ Route::get('/uploadphoto', [UserController::class, 'uploadPhoto']);
 Route::post('/uploadphoto_save', [UserController::class, 'uploadPhoto_save']);
 // Route::get('/myprofile', [UserController::class, 'myprofile']);
 Route::get('/profile/{id}', [UserController::class, 'profile']);
+
+Route::resource('/comments/', CommentsController::class);
+Route::get('/comments/create/{id}', [CommentsController::class, 'create']);
+Route::post('/comments/savecomment', [CommentsController::class, 'store']);

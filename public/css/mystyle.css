@@ -34,40 +34,62 @@ body { overflow-x: hidden; /* Hide scrollbars */
 
 /*////////////FORMS css///////////////////////////////////////////////////////////////**/
 .form-login{
-    background-color: rgb(5, 53, 5);
+    background-image: url('https://cdn.pixabay.com/photo/2019/09/21/12/15/matrix-4493783_960_720.jpg');
     padding: 50px 0;
     text-align: center;
     min-height: 80vh;
     display: flex;
     flex-direction: column; /*coloca tudo em coluna*/
     align-items: center;    /*alinha horizontalmente*/
-    justify-content: center;
+    justify-content: center;  
+    
 }
+
+.form-login input{
+    margin: 20px;
+}
+.form-login form{
+    background-color: rgba(0,0,0,0.5);
+    padding: 20px;
+    border-radius: 20px;
+}
+.form-login a{
+    background-color: #000;
+    color: #fff;
+    padding: 5px;
+    border-radius: 2px;
+}
+
+
 .form-reg{
-    /* background-color: rgb(17, 41, 17); */
     background-image: url('https://cdn.pixabay.com/photo/2019/09/21/12/15/matrix-4493783_960_720.jpg');
     text-align: center;
     min-height: 83vh;
     display: flex;
-    flex-direction: column; /*coloca tudo em coluna*/
-    align-items: center;    /*alinha horizontalmente*/
+    flex-direction: column; 
+    align-items: center;  
     justify-content: center;
 }
+
 /*////////////POST css///////////////////////////////////////////////////////////////**/
 .post-text{
-    background-color: #000;
+    background-color: rgba(0,0,0,0.7);
     padding: 20px;
     border-radius: 5px;
     width: 600px;
 }
 .post-img{
-    background-color: grey;
-    padding: 20px;
+    /* background-color: rgba(0,0,0,0.8); */
+    /* padding: 20px; */
     border-radius: 5px;
     text-align: center;
     /* position: absolute; */
     /* margin-top: 10px; */
     /* left: 5%; */
+}
+.post-img img{
+    min-height: 500px;
+    min-width: 500px;
 }
 
 .all-posts{
@@ -267,7 +289,8 @@ display: block;}
 }
 
 .btn-hero-bt{
-    background-color: #fff;
+    text-decoration: none;
+    background-color: yellowgreen;
     font-family: 'Courier New', Courier, monospace;
     padding: 10px;
     font-weight: 900;
@@ -288,8 +311,22 @@ display: block;}
     border-radius: 5px;
     display: flex;
     width: 100px;
-    
-    
+}
+
+.btn-share{
+    background-color: #dc3545;
+    padding: 20px;
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: #000;
+    font-weight: 900;   
+}
+
+.btn-share:hover{
+    background-color: #000;
+    color: #fff;
 }
 .btn-hero-bt2:hover{
     background-color: #000;
@@ -321,7 +358,20 @@ display: block;}
     position: absolute;
     left: 15%;
     top: 15%;
+    padding: 20px;
+    border-radius: 5px;
+    font-family: 'Consolas',sans-serif;
+    font-size: 1.5rem;
+    background-color: yellowgreen !important;
+    color: #000 !important;
 }
+.edit-btn:hover{
+    transform: scale(1.1);
+    background-color: white !important;
+   
+}
+
+
 
 .message-box{
     background-color: darkblue;

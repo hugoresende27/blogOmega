@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="form-reg">
+<div class="form-login">
         
 
                 <form class="w-full px-6 space-y-6 sm:px-10 sm:space-y-8" method="POST"

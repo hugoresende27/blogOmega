@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="form-reg">
+<div class="form-reg form-login">
       {{-- SE HOUVER MENSAGEM MOSTRA AQUI ---------------- --}}
       @if (isset($message))
       <div id='hideMe'  >
@@ -149,7 +149,7 @@
 
 
     
-    <button type="submit">Upload</button>
+    <button type="submit" class="btn-hero-bt">Upload</button>
 
 </form>
 

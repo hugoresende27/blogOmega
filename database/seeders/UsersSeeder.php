@@ -38,6 +38,8 @@ class UsersSeeder extends Seeder
             ]
         );
 
+        // https://cdn.pixabay.com/photo/2014/09/07/21/34/child-438373_960_720.jpg
+
         // if(config('admin.admin_name')) {
         //     User::firstOrCreate(
         //         ['email' => config('admin.admin_email')], [
