@@ -35,16 +35,6 @@ function showMovies(movies) {
     movieEl.classList.add('movie')
 
 
-    // var  moviearr = title+IMG_PATH+poster_path;
-    // var jObj = {"title":title,"image":IMG_PATH + poster_path}
-    // // var form_values = [title,IMG_PATH + poster_path]
-    // var form_values = title
-    
-    // for (var i in jObj){
-    //     form_values.push(encodeURI(i) + "=" + encodeURI(jObj[i]));
-    // }
-
-    // <a href="/cinema/create/${title}" class="my-links-nav post-cinema">Post a review</a>
 
 
     movieEl.innerHTML= `
