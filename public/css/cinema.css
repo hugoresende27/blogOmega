@@ -7,9 +7,9 @@
 :root
 {
     --primary-color: #24050a;
-    --second-color:#B30222;
-    --three-color:#E6022C;
-    --four-color:#B30222;
+    --second-color:rgba(0,255,0,0.1);
+    --three-color:#000;
+    --four-color:#000;
 }
 
 * 
@@ -128,7 +128,18 @@ main {
 .movie:hover .overview {/*EFEITO QUANDO SE PASSA O RATO POR CIMA DE OVERVIEW, MOSTRA DESCRIÇÃO DO VIDEO*/
 transform: translateY(0);
 }
+.post-cinema{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    width: fit-content;
+}
 
+.movie-title{
+    font-family: 'Consolas',sans-serif;
+    font-weight: 900;
+}
 
 @media(max-width: 480px)        /*para ecras mais pequenos*/
 {

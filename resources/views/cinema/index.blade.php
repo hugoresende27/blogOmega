@@ -2,7 +2,7 @@
 
 <link rel="stylesheet" href="css/cinema.css">
 <form id="form">
-    <input type="text" name="" id="search" class="text-center search-div" placeholder="search movies">
+    <input type="text" id="search" class="text-center search-div" placeholder="search movies">
     {{-- <button type="submit" class="btn-procurar">Search</button> --}}
 </form>
 

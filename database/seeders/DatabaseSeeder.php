@@ -25,8 +25,8 @@ class DatabaseSeeder extends Seeder
                     //  CitySeeder::class,
                     ]);
 
-        User::factory()->count(5)->create();
-        Post::factory()->count(5)->create();
-        Comment::factory()->count(10)->create();
+        // User::factory()->count(5)->create();
+        // Post::factory()->count(5)->create();
+        // Comment::factory()->count(10)->create();
     }
 }

@@ -56,7 +56,7 @@
                     </div>
                   
                     
-                    <h2 class="text-green-300 font-bold text-5xl pb-4">
+                    <h2 class="my-links-nav">
                         {{ $p->title }}
                     </h2>
                         <a href="/profile/{{ $p->user->id }}">

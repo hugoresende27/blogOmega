@@ -33,12 +33,42 @@ function showMovies(movies) {
 
     const movieEl = document.createElement('div')
     movieEl.classList.add('movie')
+
+
+    // var  moviearr = title+IMG_PATH+poster_path;
+    // var jObj = {"title":title,"image":IMG_PATH + poster_path}
+    // // var form_values = [title,IMG_PATH + poster_path]
+    // var form_values = title
+    
+    // for (var i in jObj){
+    //     form_values.push(encodeURI(i) + "=" + encodeURI(jObj[i]));
+    // }
+
+    // <a href="/cinema/create/${title}" class="my-links-nav post-cinema">Post a review</a>
+
+
     movieEl.innerHTML= `
-        
+            
+    <form action="/cinema/create" method="GET" enctype="multipart/form-data">
+
+            <button type="submit"
+                class="post-review-btn">
+                    Post Review
+
+            </button>
+
+           
+            <input type="text" value="${title}" name="mtitle" style="display:none">
+            <input type="text" value="${IMG_PATH + poster_path}" name="mimage" style="display:none">
+            <input type="text" value="${release_date}" name="mdate" style="display:none">
+            <input type="text" value="${vote_average}" name="mvote" style="display:none">
+
+
             <img src="${IMG_PATH + poster_path}"alt="${title}">
+            
             <h5>${release_date}</h5>
             <div class="movie-info">
-                <h3>${title}</h3>
+                <h3 class="movie-title" name="mtitle">${title}</h3>
                 
                 <span class="${getClassByRate(vote_average)}">${vote_average}</span>
             </div>
@@ -46,7 +76,10 @@ function showMovies(movies) {
                 <h3>Overview</h3>
               ${overview}
             </div>
+        </form>    
     `
+
+    
 
     main.appendChild(movieEl)
 })

@@ -61,7 +61,8 @@
                         </a>
                     </div>
 
-                    @if (Request::url() != route('cinema'))
+                    {{-- @if (Request::url() != route('cine')) --}}
+                    @if (!(Request::is('cinema')))
                         <div class="text-center search-div">
                         
                             <form action="{{ route('search') }}" method="GET">
@@ -71,9 +72,7 @@
                             </form>
                         </div>
                     @endif
-                    {{-- <a href="/" class="my-links-nav ">
-                        BLOG OMEGA HR
-                    </a> --}}
+                    
                     @endauth
                 </div>
         

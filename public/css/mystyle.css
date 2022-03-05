@@ -211,6 +211,7 @@ body { overflow-x: hidden; /* Hide scrollbars */
 .my-links-nav:hover{
     background-color: #fff;
     color: #000;
+    cursor: pointer;
 }
 .my-top-nav{
     min-height: 55px;
@@ -425,6 +426,20 @@ display: block;}
 .next-previous{
     background-color: darkgreen;
 }
+
+.post-review-btn{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: darkgreen;
+    color: #fff;
+}
+.post-review-btn:hover{
+    padding: 10px;
+    font-size: 1.3rem;
+    background-color: #000;
+    ;
+}
 /*///////////////////////////////HIDE ME //////////////////////////////////////*/
 
 #hideMe {
@@ -588,6 +603,7 @@ footer a:hover{
         position: absolute;
         left: 35%;
     }
+   
   
 }
 @media (max-width : 600px)

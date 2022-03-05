@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\PostsController;
+use App\Http\Controllers\CinemaController;
 use App\Http\Controllers\CommentsController;
 
 /*
@@ -20,7 +21,12 @@ use App\Http\Controllers\CommentsController;
 */
 
 Route::get('/', [PagesController::class, 'index']);
-Route::get('/cinema', [PagesController::class, 'cinema'])->name('cinema');
+
+
+// Route::post('/cinema/create/', [CinemaController::class, 'create']);
+Route::resource('/cinema', CinemaController::class);
+
+
 
 Route::resource('/blog',PostsController::class );
 

@@ -20,8 +20,8 @@ class PagesController extends Controller
         
     }
 
-    public function cinema()
-    {
-        return view ('cinema.index');
-    }
+    // public function cinema()
+    // {
+    //     return view ('cinema.index');
+    // }
 }
