@@ -4,7 +4,7 @@
 
 <div class="main-content-posts  form-reg">
 
-    <div class="m-auto text-center w-4/5">
+    {{-- <div class="m-auto text-center w-4/5">
         <div class="py-15 border-b border-gray-200">
             <h1 class="text-6xl">
                 <?php
@@ -13,7 +13,7 @@
                 ?>
             </h1>
         </div>
-    </div>
+    </div> --}}
 
 
 
@@ -24,7 +24,7 @@
 
     <div class="btn-share">
         <a href="/blog/create"
-            class="btn-share"    
+            
         >
             Share something
         </a>
@@ -59,58 +59,58 @@
                     <h2 class="my-links-nav">
                         {{ $p->title }}
                     </h2>
-                        <a href="/profile/{{ $p->user->id }}">
+
+                    <div class="my-links-nav2">
+                       
                             <img src="{{ $p->user->image }}" alt="profile_img" class="profile-img-posts">
-                            <span class="">
-                                De <span class=""> {{ $p->user->first_name }} </span> 
+                           
+                                De<a href="/profile/{{ $p->user->id }}">{{ $p->user->first_name }}</a>, 
+                                criado em {{ date('h:i:sa Y-m-d', strtotime($p->updated_at)) }}
+                              
+                    
+                        <p class="post-desc">
+                        
+                            {{ $p->description }}
+                        </p>
+                        
+                        <a href="/blog/{{ $p->slug }}" class="btn-hero-bt2">
+                            Read more
                         </a>
-                                
-                                
-                                
-                                , criado em {{ date('h:i:sa Y-m-d', strtotime($p->updated_at)) }}
-                            </span>
-                
-                    <p class=" ">
-                    
-                        {{ $p->description }}
-                    </p>
-                    
-                    <a href="/blog/{{ $p->slug }}" class="btn-hero-bt2">
-                        Read more
-                    </a>
+                    </div>
 
                     <section>
                        
 
-                        <p class="label-tags">Comments</p>
-                        <table class="table table-dark table-responsive">
+                        <span class="label-tags">Comments</span>
+                        <a href="comments/create/{{ $p->id }}" class="btn-add-comment">
+                            Add Comment
+                        </a>
+                        <div class="table-responsive">
+                            <table class="table table-dark comments-table">
 
-                            @foreach ($comments as $c)
-                            <tr>
-                                @if ($c->post_id == $p->id)
-                                    <td> 
-                                        <a href="/profile/{{ $p->user->id }}">
-                                            {{ $c->user->first_name }}
-                                        
-                                    </td>
-                                    <td>
-                                        <img src="{{ $c->user->image }}" alt="user_photo" class="comment-img" >
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <span class="comment-span">{{ $c->comment }}</span>
-                                    </td>
-                            
-                                @endif
-                            </tr> 
-                            @endforeach
+                                @foreach ($comments as $c)
+                                <tr>
+                                    @if ($c->post_id == $p->id)
+                                        <td class="comments-table-name"> 
+                                            <a href="/profile/{{ $p->user->id }}">
+                                            <img src="{{ $c->user->image }}" alt="user_photo" class="comment-img" >
+                                            
+                                                {{ $c->user->first_name }}
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <span class="comment-span">{{ $c->comment }}</span>
+                                        </td>
+                                
+                                    @endif
+                                </tr> 
+                                @endforeach
 
-                        </table>
-                        <span class="m-3">
-                            <a href="comments/create/{{ $p->id }}" class="btn-hero-bt">
-                                Add Comment
-                            </a>
-                        </span>
+                            </table>
+                        </div>
+                       
+                           
+                       
                     </section>
 
                     {{------------- BOTÃO EDIT APENAS VISIVEL SE AUTENTICADO E AUTENTICADO CORRESPONDER AO AUTOR DO POST --}}
@@ -140,10 +140,11 @@
                             </form>              
                         </span>
                     </div>
-                </div>
+               
                     
-                @endif
-                 
+                    @endif
+                    
+                </div> 
 
         
         </div>

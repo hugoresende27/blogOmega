@@ -54,12 +54,21 @@
                       
                     @endif
                     @auth
+
+                    <div class="clock-app ">                       
+                        <?php
+                        $d=mktime(11, 14, 54, 8, 12, 2014);
+                        echo "<span>" . date("h:i:sa  ", $d)."</span>";
+                        ?>                 
+                    </div>
                        
                     <div class="welcome-message">
                         <a href="/profile/{{ Auth::user()->id }}" class="my-links-nav">
                             <span >Bem vindo  {{ Auth::user()->first_name }} </span>
                         </a>
                     </div>
+
+                  
 
                     {{-- @if (Request::url() != route('cine')) --}}
                     @if (!(Request::is('cinema')))

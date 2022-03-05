@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Hubballi&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Dosis&family=Oswald:wght@300&display=swap');
 body { overflow-x: hidden; /* Hide scrollbars */ 
                
     font-family: 'Hubballi', cursive !important;
@@ -29,6 +29,14 @@ body { overflow-x: hidden; /* Hide scrollbars */
     align-items: center;    /*alinha horizontalmente*/
     justify-content: center;
     text-align: center;
+}
+.clock-app{
+    position: absolute;
+    font-family: 'Consolas',sans-serif;
+    color:greenyellow;
+    background-color: #000;
+    padding: 3px;
+    border-radius: 5px;
 }
 
 
@@ -79,6 +87,15 @@ body { overflow-x: hidden; /* Hide scrollbars */
     border-radius: 5px;
     width: 600px;
 }
+.post-desc{
+    background-color: green;
+    font-family: 'Dosis', sans-serif;
+    font-weight: bolder;
+    color: #000;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 5px;
+}
 .post-img{
     /* background-color: rgba(0,0,0,0.8); */
     /* padding: 20px; */
@@ -127,14 +144,49 @@ body { overflow-x: hidden; /* Hide scrollbars */
     background-color: #000;
     padding: 20px;
 }
-.table-striped td{
-    padding: 0 !important;
+.comments-table td{
+    vertical-align: middle;
+    text-align: center;
+    word-wrap: break-word;
+    min-width: 160px;
+    max-width: 160px;
+}
+
+.comments-table{
+    
+    margin: auto;
+    max-width: 500px;
+}
+.comments-table-name {
+    width: 100px !important;
+}
+.comments-table-name a{
+    text-decoration: none !important;
+    font-family: 'Consolas', sans-serif;
+    font-size: 1.3rem;
+    color: #fff;
+}
+.btn-add-comment{
+    font-weight: 900;
+    text-decoration: none;
+    background-color:#dc3545 ;
+    padding: 3px;
+    border-radius: 3px;
+    color: #fff;
+    font-size: 1.2rem;
+}
+.btn-add-comment:hover{
+    background-color:red ;
+    transform: scale(1.1);
+    color: #000;
 }
 /*////////////PROFILE css///////////////////////////////////////////////////////////////**/
 .profile-img-posts{
-    max-width: 100px;
-    max-height: 100px;
+    max-width: 80px;
+    max-height: 80px;
     border-radius: 15% !important;
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
 .my-reg{
@@ -145,6 +197,7 @@ body { overflow-x: hidden; /* Hide scrollbars */
 
 .welcome-message{
     position: absolute;
+    left:10%;
 }
 .all-posts img{
     width: 300px;
@@ -199,6 +252,23 @@ body { overflow-x: hidden; /* Hide scrollbars */
     position: absolute;
     top: 2%;
     
+}
+.my-links-nav2{
+    font-family: 'Consolas',sans-serif;
+    color:greenyellow;
+    background-color: #000;
+    padding: 10px;
+    margin: 20px 5px;
+    border-radius: 5px;
+}
+.my-links-nav2 a{
+    
+    text-decoration: none;
+    color:greenyellow;
+    background-color: #000;
+    padding: 10px;
+    margin: 20px 5px;
+    border-radius: 5px;
 }
 .my-links-nav{
     font-family: 'Consolas',sans-serif;
@@ -351,11 +421,19 @@ display: block;}
     color: #000;
     font-weight: 900;   
 }
-
-.btn-share:hover{
+.btn-share:hover {
     background-color: #000;
     color: #fff;
 }
+.btn-share a{
+    text-decoration: none;
+    color: #000;
+}
+
+.btn-share:hover a{
+    color: #fff;
+}
+
 .btn-hero-bt2:hover{
     background-color: #000;
     color: #fff;
@@ -519,8 +597,17 @@ footer a:hover{
 
 {
 
-   
- 
+    .welcome-message{
+
+        left:30%
+    }
+    
+    .search-div{
+    
+        top:6.5%;
+     
+    }
+
     .left-side-card-profile{
         
         position: relative;
@@ -608,10 +695,19 @@ footer a:hover{
 }
 @media (max-width : 600px)
 {
-    .search-div{
-        position: absolute;
-        left: 35%;
+
+    .welcome-message{
+
+        left:30%
     }
+
+    .search-div{
+    
+        top:6.5%;
+     
+    }
+
+  
     .left-side-card-profile{
         
         position: relative;
