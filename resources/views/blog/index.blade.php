@@ -88,11 +88,14 @@
                             @foreach ($comments as $c)
                             <tr>
                                 @if ($c->post_id == $p->id)
-                                    <td>
-                                       {{ $c->user->first_name }}
+                                    <td> 
+                                        <a href="/profile/{{ $p->user->id }}">
+                                            {{ $c->user->first_name }}
+                                        
                                     </td>
                                     <td>
                                         <img src="{{ $c->user->image }}" alt="user_photo" class="comment-img" >
+                                        </a>
                                     </td>
                                     <td>
                                         <span class="comment-span">{{ $c->comment }}</span>

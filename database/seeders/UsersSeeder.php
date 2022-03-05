@@ -17,14 +17,16 @@ class UsersSeeder extends Seeder
             ['email' => 'admin@admin', 
                 'first_name' => 'Admin',
                 'last_name' => 'admin',
+                'image'=>'https://res.cloudinary.com/https-hugoresende27-github-io-portfolio/image/upload/v1646434766/omega/vvjc4ipotttnjwwf4dfh.jpg',
+              
                 'password' => bcrypt('admin'),
                 'level' => 3
             ]
         );
         User::firstOrCreate(
             ['email' => 'a@a', 
-                'first_name' => 'a',
-                'last_name' => 'a',
+                'first_name' => 'Maria',
+                'last_name' => 'Joana',
                 'image'=>'https://res.cloudinary.com/https-hugoresende27-github-io-portfolio/image/upload/v1646434766/omega/vvjc4ipotttnjwwf4dfh.jpg',
                 'password' => bcrypt('1111'),
                 'level' => 1
@@ -32,8 +34,8 @@ class UsersSeeder extends Seeder
         );
         User::firstOrCreate(
             ['email' => 'b@b', 
-                'first_name' => 'b',
-                'last_name' => 'b',
+                'first_name' => 'Rita',
+                'last_name' => 'Albergas',
                 'image'=>'https://res.cloudinary.com/https-hugoresende27-github-io-portfolio/image/upload/v1646434766/omega/vvjc4ipotttnjwwf4dfh.jpg',
                 'password' => bcrypt('1111'),
                 'level' => 1
