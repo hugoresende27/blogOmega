@@ -20,6 +20,7 @@ use App\Http\Controllers\CommentsController;
 */
 
 Route::get('/', [PagesController::class, 'index']);
+Route::get('/cinema', [PagesController::class, 'cinema'])->name('cinema');
 
 Route::resource('/blog',PostsController::class );
 
@@ -53,3 +54,5 @@ Route::get('/profile/{id}', [UserController::class, 'profile']);
 Route::resource('/comments/', CommentsController::class);
 Route::get('/comments/create/{id}', [CommentsController::class, 'create']);
 Route::post('/comments/savecomment', [CommentsController::class, 'store']);
+
+

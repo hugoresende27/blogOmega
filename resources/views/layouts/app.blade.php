@@ -54,15 +54,23 @@
                       
                     @endif
                     @auth
-                        
-                    
-                    <div class="text-center search-div">
-                        <form action="{{ route('search') }}" method="GET">
-                            {{ csrf_field() }}
-                            <input type="text" name="search" required/>
-                            <button type="submit" class="btn-procurar">Search</button>
-                        </form>
+                       
+                    <div class="welcome-message">
+                        <a href="/profile/{{ Auth::user()->id }}" class="my-links-nav">
+                            <span >Bem vindo  {{ Auth::user()->first_name }} </span>
+                        </a>
                     </div>
+
+                    @if (Request::url() != route('cinema'))
+                        <div class="text-center search-div">
+                        
+                            <form action="{{ route('search') }}" method="GET">
+                                {{ csrf_field() }}
+                                <input type="text" name="search" placeholder="search people posts" class="text-center" required/>
+                                {{-- <button type="submit" class="btn-procurar">Search</button> --}}
+                            </form>
+                        </div>
+                    @endif
                     {{-- <a href="/" class="my-links-nav ">
                         BLOG OMEGA HR
                     </a> --}}
@@ -71,6 +79,8 @@
         
         
               @include('layouts.nav')
+
+
             </div>
         </header>
 

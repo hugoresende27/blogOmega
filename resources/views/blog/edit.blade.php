@@ -70,7 +70,7 @@
 
         {{-- INPUT IMAGEM-------------------- --}}
         <div class="m-3">
-            <img src="{{ $post->image }}" alt="old_image">
+            <img src="{{ $post->image }}" width="400px" height="400px" class="m-3" alt="old_image">
             <h1>Change Image</h1>
             <input type="file" name="image" class="form-control" onchange="preview()" >
             <img id="frame" src="" width="400px" height="400px" class="m-3"/>
