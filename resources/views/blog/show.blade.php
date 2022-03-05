@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="main-content-posts  form-reg">
-    <div class="post-show">
+    <div class="">
         
             <h1 class="post-show-label">
                 {{ $post->title }}
@@ -19,17 +19,24 @@
 
     {{-- SHOW -- BOTÃO CONTINUE A LER ------------------- --}}
     <div class="m-auto">
+        <a href="/profile/{{ $post->user->id }}">
+            <img src="{{ $post->user->image }}" alt="profile_img" class="profile-img-posts">
+            <span class="">
+                De <span class=""> {{ $post->user->first_name }} </span> 
+        </a>
+
+    , criado em {{ date('h:i:sa Y-m-d', strtotime($post->updated_at)) }}
 
         @if (isset(Auth::user()->id) && Auth::user()->id == $post->user_id || isset(Auth::user()->level) && Auth::user()->level == 3)
 
-        <div class="but-ger">
-            <span class="">
-                <a href="/blog/{{ $post->slug }}/edit" class="btn-hero-bt2">
+        <div class="">
+            
+                <a href="/blog/{{ $post->slug }}/edit" class="btn-hero-bt">
                     Edit
                 </a>
-            </span>
+           
         {{------------- BOTÃO DELETE APENAS VISIVEL SE AUTENTICADO E AUTENTICADO CORRESPONDER AO AUTOR DO POST --}}
-            <span class="">
+            
                 <form action="/blog/{{ $post->slug }}" method="POST" class="mt-5">
                     @csrf
                     @method('delete')
@@ -38,18 +45,44 @@
                         Delete
                     </button>
                 </form>              
-            </span>
+            
         </div>
         @endif
-        <span class="">
-            De <span class="">
-                {{ $post->user->name }}, criado em {{ date('h:i:sa Y-m-d', strtotime($post->updated_at)) }}
-            </span>
-        </span>
 
-        <p class="">
-            {{ $post->description }}
-        </p>
+        <section>
+                       
+
+            <p class="label-tags">Comments</p>
+            <table class="table table-dark table-responsive">
+                @foreach ($comments as $c)
+                <tr>
+                    @if ($c->post_id == $post->id)
+                    
+                        <td>{{ $c->user->first_name }}</td>
+
+                       <td> <img src="{{ $c->user->image }}" alt="user_photo" class="comment-img" > </td>
+                
+
+                        <td>{{ $c->comment }} </td>
+                
+                       
+                        
+                
+                    @endif
+                </tr>  
+                @endforeach
+            </table>
+            <span class="m-3">
+                <a href="comments/create/{{ $post->id }}" class="btn-hero-bt">
+                    Add Comment
+                </a>
+            </span>
+        </section>
+
+
+            
+
+     
  
     </div>
 

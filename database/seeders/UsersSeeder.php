@@ -25,6 +25,7 @@ class UsersSeeder extends Seeder
             ['email' => 'a@a', 
                 'first_name' => 'a',
                 'last_name' => 'a',
+                'image'=>'https://res.cloudinary.com/https-hugoresende27-github-io-portfolio/image/upload/v1646434766/omega/vvjc4ipotttnjwwf4dfh.jpg',
                 'password' => bcrypt('1111'),
                 'level' => 1
             ]
@@ -33,6 +34,7 @@ class UsersSeeder extends Seeder
             ['email' => 'b@b', 
                 'first_name' => 'b',
                 'last_name' => 'b',
+                'image'=>'https://res.cloudinary.com/https-hugoresende27-github-io-portfolio/image/upload/v1646434766/omega/vvjc4ipotttnjwwf4dfh.jpg',
                 'password' => bcrypt('1111'),
                 'level' => 1
             ]

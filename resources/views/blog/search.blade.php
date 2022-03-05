@@ -6,31 +6,26 @@
 <h1 class="my-links-nav ">{{ $count }} results </h1>
 <ul class="search-res-div">
     
-    @if($collection->isNotEmpty())
-
-        @foreach ($collection as $item)
-            @foreach ($item as $i)
-                
-            
-            
-                @if (isset( $i->first_name))
-                <li> 
-                    <img src="{{ $i->image }}" alt="" class="search-img">
+    @if(!empty($results1))
+        @foreach ($results1 as $item)           
         
-                    <a href="/profile/{{ $i->id }}"> {{ $i->first_name }}
-                @endif
-                @if (isset( $i->last_name))
-                    {{ $i->last_name }}</li> </a> 
-                @endif
-                @if (isset( $i->title))
-                <li>
-                    <img src="{{ $i->image }}" alt="" class="search-img-post">
+            <li> 
+                <img src="{{ $item->image }}" alt="" class="search-img">
+                <a href="/profile/{{ $item->id }}"> {{ $item->first_name }}
+        
                     
-                    <a href="/blog/{{ $i->slug }}"> {{ $i->title }}</li></a>  
-                @endif
-            
-            @endforeach
+                        {{ $item->last_name }}</li> </a> 
         @endforeach
+    @endif
+
+    @if (!empty($results3))
+        @foreach ($results3 as $item)   
+                <li>
+                    <img src="{{ $item->image }}" alt="" class="search-img-post">
+                    
+                    <a href="/blog/{{ $item->slug }}"> {{ $item->title }}</li></a>  
+    
+        @endforeach  
 
     @else 
     <li>

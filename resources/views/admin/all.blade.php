@@ -40,7 +40,10 @@
 
             @foreach ($all_users as $user)
             <tr>
-                <td>{{ $user->first_name." ".$user->last_name }} </td>
+                <td>  <a href="/profile/{{ $user->id }}">
+                    {{ $user->first_name." ".$user->last_name }}
+                
+                </a> </td>
                 <td>{{ $user->country }}</td>
                 <td>{{ $user->created_at }}</td>
             

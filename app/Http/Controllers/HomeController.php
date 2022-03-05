@@ -36,16 +36,16 @@ class HomeController extends Controller
             ->where('first_name', 'LIKE', "%{$search}%")
             // ->orWhere('body', 'LIKE', "%{$search}%")
             ->get();
-        $results2 = User::query()
-            ->where('last_name', 'LIKE', "%{$search}%")
-            // ->orWhere('body', 'LIKE', "%{$search}%")
-            ->get();
+        // $results2 = User::query()
+        //     ->where('last_name', 'LIKE', "%{$search}%")
+        //     // ->orWhere('body', 'LIKE', "%{$search}%")
+        //     ->get();
         $results3 = Post::query()
             ->where('title', 'LIKE', "%{$search}%")        
             ->get();
         
 
-        $collection = collect([$results1,$results2,$results3]);
+        $collection = collect([$results1,$results3]);
         $count = 0;
         foreach ($collection as $item) {
             $count += count($item);
@@ -54,6 +54,6 @@ class HomeController extends Controller
        
         // dd(get_defined_vars());
         // Return the search view with the resluts compacted
-        return view('blog.search', compact('collection','count'));
+        return view('blog.search', compact('results1','results3','count'));
     }
 }

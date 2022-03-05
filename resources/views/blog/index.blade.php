@@ -22,7 +22,7 @@
     {{-- VERIFICAR SE AUTENTICADO ---------------- --}}
     @if (Auth::check())
 
-    <div class="pt-15 w-4/5 m-auto mt-3">
+    <div class="btn-share">
         <a href="/blog/create"
             class="btn-share"    
         >
@@ -30,10 +30,17 @@
         </a>
     </div>
         
+
+    <div class="text-center next-previous">
+        
+        {{ $posts->links() }}
+    
+    </div>
     @endif
 
       {{-- FOR EACH DOS POSTS ---------------- --}}
     @foreach ($posts as $p)
+  
 
         {{-- {{ dd($p->image_path) }} --}}
         <div class="all-posts">
@@ -41,13 +48,13 @@
        
                
            
-
+               
           
                 <div class="post-text">
-
                     <div class="post-img">
-                        <img class="" src="{{ $p->image }}" width="" alt="img_do_post">
+                        <img src="{{ $p->image }}" width="" alt="img_do_post">
                     </div>
+                  
                     
                     <h2 class="text-green-300 font-bold text-5xl pb-4">
                         {{ $p->title }}
@@ -76,16 +83,26 @@
                        
 
                         <p class="label-tags">Comments</p>
+                        <table class="table table-dark table-responsive">
 
-                        @foreach ($comments as $c)
-
-                            @if ($c->post_id == $p->id)
-                                <img src="" alt="">
-                                <p> {{ $c->comment }}</p>
-                            @endif
+                            @foreach ($comments as $c)
+                            <tr>
+                                @if ($c->post_id == $p->id)
+                                    <td>
+                                       {{ $c->user->first_name }}
+                                    </td>
+                                    <td>
+                                        <img src="{{ $c->user->image }}" alt="user_photo" class="comment-img" >
+                                    </td>
+                                    <td>
+                                        <span class="comment-span">{{ $c->comment }}</span>
+                                    </td>
                             
-                        @endforeach
+                                @endif
+                            </tr> 
+                            @endforeach
 
+                        </table>
                         <span class="m-3">
                             <a href="comments/create/{{ $p->id }}" class="btn-hero-bt">
                                 Add Comment
@@ -129,6 +146,12 @@
         </div>
         
     @endforeach
+    
+    <div class="text-center next-previous">
+        
+        {{ $posts->links() }}
+    
+    </div>
 
   </div>  
     

@@ -35,7 +35,7 @@ class Post extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function comments(): HasMany
+    public function comments()//: HasMany
     {
         return $this->hasMany(Comment::class, 'id', 'post_id');
     }

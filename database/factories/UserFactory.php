@@ -15,11 +15,20 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->name(),
+            'first_name' => $this->faker->firstname(),
+            'last_name' => $this->faker->lastName(),
+            'nickname'=>$this->faker->word(),
             'email' => $this->faker->unique()->safeEmail(),
             'email_verified_at' => now(),
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'password' => 1111, // password
             'remember_token' => Str::random(10),
+            'sex'=>$this->faker->randomElement(['M','F','O']),
+            // faker->dateTimeBetween($startDate = '-50 years', $endDate = '-18 years', $timezone = null),
+            'born'=>$this->faker->dateTimeBetween($startDate = '-100 years', $endDate = '-18 years', $timezone = null),
+            'country'=>$this->faker->country(),
+            'mobile'=>rand(100000000,999999999),
+            'image'=>'https://res.cloudinary.com/https-hugoresende27-github-io-portfolio/image/upload/v1646434766/omega/vvjc4ipotttnjwwf4dfh.jpg',
+            'details'=>$this->faker->sentence($nbWords = 4, $variableNbWords = true) ,
         ];
     }
 

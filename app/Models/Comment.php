@@ -19,8 +19,20 @@ class Comment extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function user(): HasOne
+    public function user()//: HasOne
     {
         return $this->hasOne(User::class, 'id', 'user_id');
     }
+
+    /**
+     * Get the post associated with the Comment
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function post()//: HasOne
+    {
+        return $this->hasOne(Post::class, 'id', 'post_id');
+    }
+
+
 }

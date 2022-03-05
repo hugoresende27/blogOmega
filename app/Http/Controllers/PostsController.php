@@ -42,8 +42,10 @@ class PostsController extends Controller
     }
     public function index()
     {
-        $posts = Post::orderBy('updated_at', 'DESC')->get();
+        // $posts = Post::orderBy('updated_at', 'DESC')->get();
+        $posts = Post::orderBy('updated_at', 'DESC')->paginate(3);
         $comments = Comment::all();
+        
         //dd($post);
 
         return view ('blog.index',compact('posts','comments'));
@@ -121,7 +123,11 @@ class PostsController extends Controller
      */
     public function show($slug)
     {
-        return view ('blog.show')->with('post', Post::where('slug', $slug)->first());
+        $comments = Comment::all();
+        $post = Post::where('slug', $slug)->first();
+
+        return view ('blog.show',compact('comments','post'));
+
     }
 
     /**
