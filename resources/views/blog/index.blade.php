@@ -4,16 +4,6 @@
 
 <div class="main-content-posts  form-reg">
 
-    {{-- <div class="m-auto text-center w-4/5">
-        <div class="py-15 border-b border-gray-200">
-            <h1 class="text-6xl">
-                <?php
-                $d=mktime(11, 14, 54, 8, 12, 2014);
-                echo "<h1 class='welcome-title'>" . date("h:i:sa  ", $d)."<h1>";
-                ?>
-            </h1>
-        </div>
-    </div> --}}
 
 
 
@@ -51,21 +41,41 @@
                
           
                 <div class="post-text">
-                    <div class="post-img">
-                        <img src="{{ $p->image }}" width="" alt="img_do_post">
-                    </div>
-                  
-                    
-                    <h2 class="my-links-nav">
-                        {{ $p->title }}
-                    </h2>
+                    <a href="/blog/{{ $p->slug }}" class="">
+                        <div class="post-img">
+                            <img src="{{ $p->image }}" width="" alt="img_do_post">
+                        </div>
+                        
+                        
+                        <h2 class="my-links-nav text-center">
+                            {{-- {{ $p->title }} --}}
+
+                            @if (isset($p->movie_rate))
+
+                            @while  ($p->movie_rate >0)
+                            
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            
+                            <?php ($p->movie_rate --)?>
+                            @endwhile
+                                
+                        
+                        @endif
+
+
+                        </h2>
+                     
+
+                    </a>
+
+               
 
                     <div class="my-links-nav2">
                        
                             <img src="{{ $p->user->image }}" alt="profile_img" class="profile-img-posts">
                            
-                                De<a href="/profile/{{ $p->user->id }}">{{ $p->user->first_name }}</a>, 
-                                criado em {{ date('h:i:sa Y-m-d', strtotime($p->updated_at)) }}
+                                <a href="/profile/{{ $p->user->id }}">{{ $p->user->first_name }}</a>
+                                {{ date('h:i:sa Y-m-d', strtotime($p->updated_at)) }}
                               
                     
                         <p class="post-desc">
@@ -73,11 +83,11 @@
                             {{ $p->description }}
                         </p>
                         
-                        <a href="/blog/{{ $p->slug }}" class="btn-hero-bt2">
-                            Read more
-                        </a>
+                        
+                            {{-- Read more --}}
+                       
                     </div>
-
+                    
                     <section>
                        
 
@@ -85,6 +95,7 @@
                         <a href="comments/create/{{ $p->id }}" class="btn-add-comment">
                             Add Comment
                         </a>
+
                         <div class="table-responsive">
                             <table class="table table-dark comments-table">
 
@@ -107,6 +118,7 @@
                                 @endforeach
 
                             </table>
+
                         </div>
                        
                            
@@ -127,6 +139,11 @@
                                 <span class="m-3">
                                     <a href="/blog/{{ $p->slug }}/edit" class="btn-hero-bt">
                                         Edit
+                                    </a>
+                                </span>
+                                <span class="m-3">
+                                    <a href="/blog/{{ $p->slug }}" class="btn-hero-bt">
+                                        Read More
                                     </a>
                                 </span>
 

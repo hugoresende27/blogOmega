@@ -1,8 +1,9 @@
 <nav class="my-nav">
 
     <a class=" my-links-nav" href="/">Home</a>
-    <a class=" my-links-nav" href="/blog">Blog</a>
-    <a class="  my-links-nav" href="/cinema">Cinema</a>
+    <a class="  my-links-nav" href="/cinema">Movies</a>
+    <a class=" my-links-nav" href="/blog">Reviews</a>
+
 
     @guest
         <a class="my-links-nav" href="{{ route('login') }}">{{ __('Login') }}</a>

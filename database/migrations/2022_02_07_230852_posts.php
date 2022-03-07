@@ -19,6 +19,7 @@ class Posts extends Migration
             $table->string('title');
             $table->longText('description');
             $table->string('image')->nullable();
+            $table->unsignedBigInteger('movie_rate')->nullable();
             $table->timestamps();
             $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

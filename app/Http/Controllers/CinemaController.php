@@ -57,6 +57,8 @@ class CinemaController extends Controller
        
         $slug = SlugService::createSlug(Post::class, 'slug', $request->title);
 
+        
+
         // dd(get_defined_vars());
 
         Post::create([
@@ -64,6 +66,7 @@ class CinemaController extends Controller
             'description'=>$request->input('description'),
             'slug'=>$slug,
             'image'=>$request->image,
+            'movie_rate'=>$request->star,
             'user_id'=>auth()->user()->id
         ]);
 
