@@ -70,12 +70,16 @@
                      
 
                         @if (Route::has('register'))
-                        <p class="w-full text-xs text-center text-gray-700 my-6 sm:text-sm sm:my-8">
-                            {{ __("No account?") }}
+                        
+                        <p class="">
+                                {{ __("No account?") }}
+                        <div class="blink_me">
                             <a class="" href="{{ route('register') }}">
-                                {{ __('Register') }}
+                                {{ __('Register Now') }}
                             </a>
-                        </p>
+                               
+                            </p>
+                        </div>
                         @endif
                        
                     </div>

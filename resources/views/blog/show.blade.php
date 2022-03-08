@@ -18,15 +18,17 @@
     </div>
 
     {{-- SHOW -- BOTÃO CONTINUE A LER ------------------- --}}
-    <div class="m-auto">
+    <div class="m-auto my-links-nav3">
         <a href="/profile/{{ $post->user->id }}">
-            <img src="{{ $post->user->image }}" alt="profile_img" class="profile-img-posts">
-            <span class="">
-                De <span class=""> {{ $post->user->first_name }} </span> 
+            <img src="{{ $post->user->image }}" alt="profile_img" class="profile-img-posts2">
+           
+                <span class=""> {{ $post->user->first_name }} </span> 
         </a>
+        
 
-    , criado em {{ date('h:i:sa Y-m-d', strtotime($post->updated_at)) }}
+    {{ date('h:i:sa Y-m-d', strtotime($post->updated_at)) }}
 
+    <p class="post-show-desc">{{ $post->description }}</p>
         @if (isset(Auth::user()->id) && Auth::user()->id == $post->user_id || isset(Auth::user()->level) && Auth::user()->level == 3)
 
         <div class="">

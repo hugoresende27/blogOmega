@@ -35,11 +35,11 @@
 
                     @if (isset(Auth::user()->level) && Auth::user()->level == 3)
 
-                        <div class="admin-menu">
+                        <div class="">
                             
                             
                 
-                                <div class="dropdown">
+                                <div class="dropdown ">
                                 <button class="">
                                     <span class="">Administração</span>
                                     
