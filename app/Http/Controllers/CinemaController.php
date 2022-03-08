@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\Comment;
 use Illuminate\Http\Request;
 use JD\Cloudder\Facades\Cloudder;
 use Cviebrock\EloquentSluggable\Services\SlugService;
@@ -93,6 +94,8 @@ class CinemaController extends Controller
     public function edit($id)
     {
         //
+      
+        
     }
 
     /**
@@ -105,6 +108,8 @@ class CinemaController extends Controller
     public function update(Request $request, $id)
     {
         //
+        
+        
     }
 
     /**

@@ -41,16 +41,20 @@
                
           
                 <div class="post-text">
+                    @if (($p->image) != null)
+                        
+                  
                     <a href="/blog/{{ $p->slug }}" class="">
                         <div class="post-img">
                             <img src="{{ $p->image }}" width="" alt="img_do_post">
                         </div>
+                    @endif   
                         
-                        
+                    @if (($p->movie_rate) != null)
                         <h2 class="my-links-nav text-center">
                             {{-- {{ $p->title }} --}}
 
-                            @if (isset($p->movie_rate))
+                           
 
                             @while  ($p->movie_rate >0)
                             
@@ -60,7 +64,7 @@
                             @endwhile
                                 
                         
-                        @endif
+                    @endif
 
 
                         </h2>
@@ -112,6 +116,23 @@
                                         <td>
                                             <span class="comment-span">{{ $c->comment }}</span>
                                         </td>
+                                        @if (((Auth::user() != null) && (Auth::user()->id == $c->user->id)))
+                                            <td>
+                                            
+                                                <form action="/comments/{{ $c->id }}" method="POST" class="mt-5">
+                                                <a class="comment-span" href="comments/{{$c->id}}/edit">Edit</a>
+                                                
+                                                    @csrf
+                                                    @method('delete')
+                                                    <button type="submit" class="btn-del-cmt"
+                                                    onclick="return confirm('Are you sure?')">
+                                                        Delete
+                                                    </button>
+                                                </form>  
+                                            
+                                            </td>
+                                            
+                                        @endif
                                 
                                     @endif
                                 </tr> 

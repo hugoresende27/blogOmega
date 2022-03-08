@@ -39,9 +39,11 @@
                             
                             
                 
-                                <div class="dropdown ">
-                                <button class="">
-                                    <span class="">Administração</span>
+                                <div class="dropdown "style="
+                                                             position:absolute;
+                                                             top:10%">
+                                <button class=""
+                                    <span class="" >Administração</span>
                                     
                                 </button>
                                 <ul class="dropdown-menu ">

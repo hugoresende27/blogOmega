@@ -15,7 +15,7 @@
    {{-- {{ dd(get_defined_vars()) }} --}}
     @csrf
     <div class="m-3">
-        <img src="{{ Auth::user()->image }}" alt="old_image">
+        <img src="{{ Auth::user()->image }}" alt="old_image" class="image-input">
         <input type="file" name="image" class="form-control" onchange="preview()" >
 
         <img id="frame" src="" class="image-input" class="m-3"/>

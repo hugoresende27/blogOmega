@@ -40,8 +40,8 @@ a{
 }
 .main-content{
     min-height: 81vh;
-    /* background-color: #000; */
-    background-color: var(--one-cor);
+    background-color: #000;
+    /* background-color: var(--one-cor); */
     
 }
 
@@ -61,6 +61,12 @@ a{
     border-radius: 5px;
 }
 
+.btn-del-cmt{
+    background-color: red;
+    color: #fff;
+    font-weight: 900;
+    margin: 5px;
+}
 
 /*////////////FORMS css///////////////////////////////////////////////////////////////**/
 .form-login{
@@ -135,7 +141,8 @@ a{
     /* left: 5%; */
 }
 .post-img img{
-    min-height: 700px;
+    min-height: 500px;
+    height: auto;
     min-width: 500px;
 }
 
@@ -249,8 +256,13 @@ a{
     max-height: 350px;
 }
 .card-body{
-    text-align: left ;
+    background-color:  rgba(0, 10, 0, 0.7);
+    border-radius: 5px;
+    
+    padding: 5px;
+
 }
+
 
 .image-input{
     max-width: 400px;
@@ -274,6 +286,7 @@ a{
 
 .right-side-card-profile{
     background-color:  var(--second-cor);
+    background-color:  rgba(10, 185, 10, 0.5);
     border-radius: 15px;
     position: absolute;
     left: 40%;
@@ -499,12 +512,23 @@ display: block;}
 .label-tags{
     background-color: black;
     padding: 5px;
-    text-align: left ;
+    text-align: center ;
     border-radius: 5px;
     font-family: 'Hubballi', cursive;
     font-size: 1.5rem;
     font-weight: 600;
     color: #fff;
+}
+
+.label-tags2{
+   
+    padding: 5px;
+  
+    border-radius: 5px;
+    font-family: 'Consolas', cursive;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--three-cor);
 }
 
 
@@ -517,12 +541,12 @@ display: block;}
     border-radius: 5px;
     font-family: 'Consolas',sans-serif;
     font-size: 1.5rem;
-    background-color: var(--three-cor) !important;
-    color: #000 !important;
+    background-color: var(--one-cor) !important;
+    color: #fff !important;
 }
 .edit-btn:hover{
     transform: scale(1.1);
-    background-color: white !important;
+    background-color: #000 !important;
    
 }
 

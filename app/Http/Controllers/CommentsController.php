@@ -88,6 +88,10 @@ class CommentsController extends Controller
     public function edit($id)
     {
         //
+        $comment = Comment::where('user_id', $id)->first();
+        // $post = $comment->post->title;
+        // dd(get_defined_vars());
+        return view ('comments.edit',compact('comment'));
     }
 
     /**
@@ -100,6 +104,17 @@ class CommentsController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $user_id = Auth::user()->id;
+        // dd(get_defined_vars());
+
+        
+        $comment = Comment::where('id',$id)->update([
+                'comment'=>$request->comment,
+                'post_id'=>$request->post_id,
+                'user_id'=>$user_id
+        ]);
+        // dd(get_defined_vars());
+        return redirect('/blog')->with('message','Comment Updated');
     }
 
     /**
@@ -111,5 +126,9 @@ class CommentsController extends Controller
     public function destroy($id)
     {
         //
+        $c = Comment::where('id', $id);
+        $c->delete();
+
+        return redirect('/blog')->with ('message', 'Comment deleted');
     }
 }
