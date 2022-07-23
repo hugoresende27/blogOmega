@@ -14,7 +14,7 @@ class Post extends Model
     use Sluggable;
 
 
-    protected $fillable = ['title','slug','description','image_path','user_id'];
+    protected $fillable = ['title','slug','description','image','user_id','movie_rate'];
 
     public function user()
     {
@@ -28,5 +28,15 @@ class Post extends Model
                 'source'=>'title',
                 ]
             ];
+    }
+
+    /**
+     * Get all of the comments for the Post
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function comments()//: HasMany
+    {
+        return $this->hasMany(Comment::class, 'id', 'post_id');
     }
 }

@@ -1,0 +1,78 @@
+<?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Seeder;
+use App\Models\User;
+class UsersSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        User::firstOrCreate(
+            ['email' => 'admin@admin', 
+                'first_name' => 'Admin',
+                'last_name' => 'admin',
+                'sex'=>'F',
+                'city'=>'Somewhere',
+                'country'=>'Portugal',
+                'details'=>'Something about me',
+                'mobile'=>123456789,
+                'born'=>'1988-01-01',
+                'nickname'=>'the creator',
+                'image'=>'https://res.cloudinary.com/https-hugoresende27-github-io-portfolio/image/upload/v1646434766/omega/vvjc4ipotttnjwwf4dfh.jpg',
+              
+                'password' => bcrypt('admin'),
+                'level' => 3
+            ]
+        );
+        User::firstOrCreate(
+            ['email' => 'a@a', 
+                'first_name' => 'Maria',
+                'last_name' => 'Joana',
+                'sex'=>'F',
+                'city'=>'Somewhere',
+                'country'=>'Portugal',
+                'details'=>'Something about me',
+                'mobile'=>123456789,
+                'born'=>'1988-01-01',
+                'nickname'=>'the creator',
+                'image'=>'https://res.cloudinary.com/https-hugoresende27-github-io-portfolio/image/upload/v1646434766/omega/vvjc4ipotttnjwwf4dfh.jpg',
+                'password' => bcrypt('1111'),
+                'level' => 1
+            ]
+        );
+        User::firstOrCreate(
+            ['email' => 'b@b', 
+                'first_name' => 'Rita',
+                'last_name' => 'Albergas',
+                'sex'=>'F',
+                'city'=>'Somewhere',
+                'country'=>'Portugal',
+                'details'=>'Something about me',
+                'mobile'=>123456789,
+                'born'=>'1988-01-01',
+                'nickname'=>'the creator',
+                'image'=>'https://res.cloudinary.com/https-hugoresende27-github-io-portfolio/image/upload/v1646434766/omega/vvjc4ipotttnjwwf4dfh.jpg',
+                'password' => bcrypt('1111'),
+                'level' => 1
+            ]
+        );
+
+        // https://cdn.pixabay.com/photo/2014/09/07/21/34/child-438373_960_720.jpg
+
+        // if(config('admin.admin_name')) {
+        //     User::firstOrCreate(
+        //         ['email' => config('admin.admin_email')], [
+        //             'name' => config('admin.admin_name'),
+        //             'password' => bcrypt(config('admin.admin_password')),
+        //             'level' => 3
+        //         ]
+        //     );
+        // }
+    }
+}

@@ -20,10 +20,20 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+
+    protected $guarded = [];
     protected $fillable = [
-        'name',
+        'first_name',
+        'last_name',
+        'sex',
+        'born',
+        'nickname',
+        'mobile',
+        'image',
+        'details',
         'email',
         'password',
+        'level'
     ];
 
     /**
@@ -32,7 +42,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $hidden = [
-        'password',
+        // 'password',
         'remember_token',
     ];
 
@@ -49,5 +59,9 @@ class User extends Authenticatable
     public function post()
     {
         return $this->hasMany(Post::class);
+    }
+
+    public function levels() {
+        return $this->belongsToMany(Level::class, 'user_level');
     }
 }

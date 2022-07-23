@@ -1,38 +1,48 @@
 @extends('layouts.app')
 
 @section('content')
-    
-    <div class="background-image grid grid-cols-1 m-auto">
-        <div class="flex text-gray-100 pt-10">
+
+    {{-- {{ dd(Auth::user()->level) }} --}}
+<div class="main-content"style="background: url('{{ URL('/images/bg_matrix.jpg') }}')">
+       
+        
             <div class="pt-4 pb-16 sm:m-auto w-4/5 block text-center">
-                <h1 class="sm:text-blue-100 text-5xl uppercase font-bold text-shadow-md pb-14">
-                    torne-se um desenvolvedor de Laravel 
+                <h1 class=" welcome-title">
+                    WELCOME TO OMEGA WORLD</span>
                 </h1>
-                <a href="/blog"
-                    class="text-center bg-gray-50 text-gray-700 py-2 px-4 font-bold text-xl uppercase"
-                >Saiba mais</a>
+            @guest
+                
+           
+                @if (Route::has('register'))
+               
+                    <a href="{{ route('register') }}"
+                        class="btn-hero-welcome"
+                    >Register</a>
+               
+                @endif
+
+            @endguest
             </div>
-        </div>
-    </div>
+       
+    
+</div>
 
 
-    <div class="sm:grid grid-cols-2 gap-20 w-4/5 mx-auto py-15 border-b border-gray-200 bg-gray-300">
+    {{-- <div class="sm:grid grid-cols-2 gap-20 w-4/5 mx-auto py-15 border-b border-gray-200 bg-gray-300 ">
         <div>
-            <img src="https://cdn.pixabay.com/photo/2015/03/30/14/07/coding-699318_960_720.jpg" width="700" alt="notebook_img">
+            <img src="{{ URL('/images/img1.jpg') }}" width="600" alt="notebook_img" class="w-4/5 rounded-3xl m-auto">
         </div>
 
         <div class="m-auto sm:m-auto text-left w-4/5 block">
             <h2 class="text-3xl font-extrabold text-gray-600">
-                Quer tornar-se um melhor desenvolvedor de web?
+                Este site foi desenvolvido na framework Laravel, contém um blog
             </h2>
 
             <p class="py-8 text-gray-500 text-s">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Duci
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Duci
+                
             </p>
             <p class="font-extrabold text-gray-600 text-s pb-9">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Duci
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Duci
+                Visite também o meu <a href="https://hugoresende27.github.io/portfolio/" target="_blank">portefólio</a> e o meu     <a href="https://github.com/hugoresende27" target="_blank">github.</a>
             </p>
             <a href="/blog"
                 class="uppercase bg-blue-500 text-gray-100 text-s font-extrabold py-3 px-8 rounded-3xl"   
@@ -66,8 +76,11 @@
         <h2 class="text-4xl font-bold py-10">
             Posts Recentes
         </h2>
-        <p class="m-auto text-gray-500 w-4/5">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam autem accusamus harum ab dolorem vel iusto voluptate tempora, itaque sapiente laborum, modi doloremque id at praesentium nulla voluptatibus suscipit architecto!
+        <p class="m-auto text-lg text-yellow-500 w-4/5">
+            @if (isset($post))
+                {{ $post->description }}
+            @endif
+           
         </p>
     </div>
 
@@ -88,6 +101,6 @@
         <div >
             <img class="mt-10 rounded-2xl" src="https://cdn.pixabay.com/photo/2015/03/30/14/07/coding-699318_960_720.jpg" width="700" alt="notebook_img">
         </div>
-    </div>
+    </div> --}}
 
 @endsection
